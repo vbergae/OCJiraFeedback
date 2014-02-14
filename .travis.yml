@@ -1,4 +1,4 @@
-language: objective-ci
+language: objective-c
 before_script:
   - cd src/OCJiraFeedback
 script:

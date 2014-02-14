@@ -1,4 +1,4 @@
 language: objective-c
 script:
-  - xctool -workspace src/OCJiraFeedback/OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - xctool test -workspace src/OCJiraFeedback/OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  xctool -workspace src/OCJiraFeedback/OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  xctool test -workspace src/OCJiraFeedback/OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

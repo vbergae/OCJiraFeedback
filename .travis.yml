@@ -1,4 +1,4 @@
 language: objective-c
 before_script:
   - cd src/OCJiraFeedback
-script: xctool test -workspace OCJiraFeedback.xcworkspace -scheme OCJiraFeedback -sdk iphonesimulator
+script: xcodebuild test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator

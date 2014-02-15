@@ -1,4 +1,7 @@
 language: objective-c
 before_script:
   - cd src/OCJiraFeedback
-script: xcodebuild test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator
+  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
+  - pod install
+script: 
+  - xctool test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator

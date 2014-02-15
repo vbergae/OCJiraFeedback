@@ -3,5 +3,6 @@ before_script:
   - cd src/OCJiraFeedback
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
   - pod install
-script: 
+script:
+  - xctool -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator
   - xctool test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator

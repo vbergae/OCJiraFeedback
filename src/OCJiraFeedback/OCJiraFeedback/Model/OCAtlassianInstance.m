@@ -60,11 +60,18 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 {
     if (!_connector) {
         NSAssert(self.host, @"Connector requires a host");
+        
         NSString *baseURLString = [NSString stringWithFormat:@"https://%@",
                                    self.host];
         NSURL *baseURL = [NSURL URLWithString:baseURLString];
         
         _connector = [[OCInstanceConnector alloc] initWithBaseURL:baseURL];
+        
+        if (self.username) {
+            [_connector.requestSerializer
+             setAuthorizationHeaderFieldWithUsername:self.username
+             password:self.password];
+        }
     }
     
     return _connector;

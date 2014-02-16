@@ -87,6 +87,21 @@
     XCTAssertNotNil(self.instance.connector, @"should create a connector");
 }
 
+- (void)test_connector_with_username
+{
+    self.instance.host = @"example.atlassian.net";
+    id username = [OCMockObject mockForClass:NSString.class];
+    id password = [OCMockObject mockForClass:NSString.class];
+    
+    id instance = [OCMockObject partialMockForObject:self.instance];
+    [[[instance expect] andReturn:username] username];
+    [[[instance expect] andReturn:password] password];
+    
+    XCTAssertNoThrow(self.instance.connector, @"should not raise exception");
+    
+    [instance verify];
+}
+
 #pragma mark -
 #pragma mark Instance methods
 

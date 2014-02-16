@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "OCAtlassianInstance.h"
+#import "OCInstanceConnector.h"
 
 @interface OCAtlassianInstanceTests : XCTestCase
 
@@ -83,6 +85,74 @@
 {
     self.instance.host = @"example.atlassian.net";
     XCTAssertNotNil(self.instance.connector, @"should create a connector");
+}
+
+#pragma mark -
+#pragma mark Instance methods
+
+#pragma mark createIssueWithSummary:description:completion
+
+- (void)test_createIssue_without_summary
+{
+    XCTAssertThrows(
+        [self.instance createIssueWithSummary:nil
+                                  description:@""
+                                   completion:^(NSError *e) {}],
+        @"should raise argument exception"
+    );
+}
+
+- (void)test_createIssue_without_description
+{
+    XCTAssertThrows(
+        [self.instance createIssueWithSummary:@""
+                                  description:nil
+                                   completion:^(NSError *e) {}],
+        @"should raise argument exception"
+    );
+}
+
+- (void)test_createIssue_without_handler
+{
+    XCTAssertThrows(
+        [self.instance createIssueWithSummary:@""
+                                  description:@""
+                                   completion:nil],
+        @"should raise argument exception"
+    );
+}
+
+- (void)test_createIssue_makes_the_request
+{
+    self.instance.projectKey = @"TEST";
+    self.instance.issueType  = OCImproventIssueType;
+    
+    NSString *expectedPath = @"rest/api/2/issue";
+    NSDictionary *expectedParams = @{
+        @"fields": @{
+            @"project": @{ @"key" : @"TEST" },
+            @"summary": @"summary",
+            @"description": @"description",
+            @"issuetype": @{ @"name" : @"Improvement"}
+        }
+    };
+    
+    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
+    [[connector expect]
+     POST:expectedPath
+     parameters:expectedParams
+     success:OCMOCK_ANY
+     failure:OCMOCK_ANY];
+    
+    id instance = [OCMockObject partialMockForObject:self.instance];
+    [[[instance stub] andReturn:connector] connector];
+    
+    [instance createIssueWithSummary:@"summary"
+                         description:@"description"
+                          completion:^(NSError *e) {}];
+    
+    XCTAssertNoThrow([connector verify],
+                     @"should call POST:parameters:success:failure");
 }
 
 @end

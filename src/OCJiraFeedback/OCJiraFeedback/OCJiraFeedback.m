@@ -10,4 +10,11 @@
 
 @implementation OCJiraFeedback
 
++ (void)feedbackWithSummary:(NSString *)summary
+                description:(NSString *)description
+                 completion:(void (^)(NSError *))handler
+{
+    
+}
+
 @end

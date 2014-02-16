@@ -29,6 +29,18 @@ NSString * NSStringFromOCIssueType(OCIssueType type)
     }
 }
 
+OCIssueType OCIssueTypeFromNSString(NSString *type)
+{
+    if ([type isEqualToString:@"Improvement"])
+        return OCImproventIssueType;
+    else if ([type isEqualToString:@"Task"])
+        return OCTaskIssueType;
+    else if ([type isEqualToString:@"Bug"])
+        return OCBugIssueType;
+    else
+        return OCNoneIssueType;
+}
+
 @interface OCAtlassianInstance() {
 @private
     OCInstanceConnector *_connector;
@@ -61,6 +73,17 @@ NSString * NSStringFromOCIssueType(OCIssueType type)
 #pragma mark -
 #pragma mark Instance methods
 
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"issueType"]) {
+        NSAssert([value isKindOfClass:NSString.class],
+                 @"Issue type expected as NSString from Instance.plist");
+        value = @(OCIssueTypeFromNSString(value));
+    }
+    
+    [super setValue:value forKey:key];
+}
+
 - (void)createIssueWithSummary:(NSString *)summary
                    description:(NSString *)description
                     completion:(void (^)(NSError *))handler
@@ -84,6 +107,23 @@ NSString * NSStringFromOCIssueType(OCIssueType type)
     {
         handler(error);
     }];
+}
+
+#pragma mark -
+#pragma mark Class methods
+
++ (instancetype)create
+{
+    NSString *path = [[NSBundle mainBundle]
+                           pathForResource:@"instance"
+                           ofType:@"plist"];
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSAssert(plist, @"Instance.plist file not found, please check your configuration");
+    
+    OCAtlassianInstance *instance = OCAtlassianInstance.new;
+    [instance setValuesForKeysWithDictionary:plist];
+    
+    return instance;
 }
 
 #pragma mark -

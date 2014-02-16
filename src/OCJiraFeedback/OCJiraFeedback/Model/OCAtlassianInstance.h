@@ -71,4 +71,14 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
                    description:(NSString *)description
                     completion:(void(^)(NSError *))handler;
 
+/**
+ @name Loading instance
+ */
+
+/**
+ Creates and loads Jira instance from the file Instance.plist from your 
+ main bundle
+ */
++ (instancetype)create;
+
 @end

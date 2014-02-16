@@ -7,6 +7,7 @@
 //
 
 #import "OCJiraFeedback.h"
+#import "OCAtlassianInstance.h"
 
 @implementation OCJiraFeedback
 
@@ -14,7 +15,11 @@
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler
 {
+    OCAtlassianInstance *instance = OCAtlassianInstance.create;
     
+    [instance createIssueWithSummary:summary
+                         description:description
+                          completion:handler];
 }
 
 @end

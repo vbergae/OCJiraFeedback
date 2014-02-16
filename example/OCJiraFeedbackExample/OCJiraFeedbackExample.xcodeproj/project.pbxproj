@@ -22,7 +22,7 @@
 		CCEF749518B14CC500F6AB0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEF749318B14CC500F6AB0A /* InfoPlist.strings */; };
 		CCEF749718B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEF749618B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m */; };
 		CCEF74A218B14E5700F6AB0A /* VBFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEF74A118B14E5700F6AB0A /* VBFeedbackViewController.m */; };
-		CCEF74A418B153BC00F6AB0A /* instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCEF74A318B153BC00F6AB0A /* instance.plist */; };
+		CCEF74A418B153BC00F6AB0A /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCEF74A318B153BC00F6AB0A /* Instance.plist */; };
 		FD234648E1BF4FE1B3E27FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA32BE5171248E1810A3917 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 		CCEF749618B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCJiraFeedbackExampleTests.m; sourceTree = "<group>"; };
 		CCEF74A018B14E5700F6AB0A /* VBFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFeedbackViewController.h; sourceTree = "<group>"; };
 		CCEF74A118B14E5700F6AB0A /* VBFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFeedbackViewController.m; sourceTree = "<group>"; };
-		CCEF74A318B153BC00F6AB0A /* instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = instance.plist; sourceTree = SOURCE_ROOT; };
+		CCEF74A318B153BC00F6AB0A /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = SOURCE_ROOT; };
 		E357F86967CF486DA37C31CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +139,7 @@
 		CCEF747218B14CC500F6AB0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF74A318B153BC00F6AB0A /* instance.plist */,
+				CCEF74A318B153BC00F6AB0A /* Instance.plist */,
 				CCEF747318B14CC500F6AB0A /* OCJiraFeedbackExample-Info.plist */,
 				CCEF747418B14CC500F6AB0A /* InfoPlist.strings */,
 				CCEF747718B14CC500F6AB0A /* main.m */,
@@ -246,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCEF748418B14CC500F6AB0A /* Images.xcassets in Resources */,
-				CCEF74A418B153BC00F6AB0A /* instance.plist in Resources */,
+				CCEF74A418B153BC00F6AB0A /* Instance.plist in Resources */,
 				CCEF747618B14CC500F6AB0A /* InfoPlist.strings in Resources */,
 				CCEF747F18B14CC500F6AB0A /* Main.storyboard in Resources */,
 			);

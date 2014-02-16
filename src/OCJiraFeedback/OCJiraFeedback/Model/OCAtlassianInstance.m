@@ -122,7 +122,7 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 + (instancetype)create
 {
     NSString *path = [[NSBundle mainBundle]
-                           pathForResource:@"instance"
+                           pathForResource:@"Instance"
                            ofType:@"plist"];
     NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
     NSAssert(plist, @"Instance.plist file not found, please check your configuration");

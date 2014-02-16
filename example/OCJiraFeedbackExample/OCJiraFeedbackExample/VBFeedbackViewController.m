@@ -23,6 +23,8 @@
 
 - (IBAction)sendFeedbackAction:(id)sender
 {
+#warning Check Instance.plist and edit before to use it!!
+    
     NSString *summary       = self.summary.text;
     NSString *description   = self.description.text;
     

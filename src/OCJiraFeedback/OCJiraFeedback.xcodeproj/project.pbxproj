@@ -21,7 +21,6 @@
 		CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */; };
 		CC85FF7D18B11895009C09D1 /* OCInstanceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */; };
 		CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */; };
-		CC85FF8118B12929009C09D1 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC85FF8018B127B2009C09D1 /* Instance.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,7 +260,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC85FF8118B12929009C09D1 /* Instance.plist in Resources */,
 				CC09E80D18AE95FC00714B92 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

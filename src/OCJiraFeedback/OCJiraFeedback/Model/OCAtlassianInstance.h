@@ -76,8 +76,10 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
  */
 
 /**
- Creates and loads Jira instance from the file Instance.plist from your 
- main bundle
+ Creates and loads a new instance 
+ 
+ Data for the connection will be load from the file Instance.plist which 
+ *must* be located in your main bundle.
  */
 + (instancetype)create;
 

@@ -1,3 +1,4 @@
 src/OCJiraFeedback/build
 src/OCJiraFeedback/Pods
 src/OCJiraFeedback/Instance.plist
+example/OCJiraFeedbackExample/Pods

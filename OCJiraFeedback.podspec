@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "OCJiraFeedback"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "OCJiraFeedback is a simple library useful for sending user
 		   feedback to any Atlassian Jira instance."
 

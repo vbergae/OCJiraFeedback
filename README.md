@@ -6,6 +6,20 @@ OCJiraFeedback
 
 Simple framework which sends feedback data from your apps to Atlassian Jira instances.
 
+## Installation
+
+- The supported way to get JLTMDbClient is by using [CocoaPods](http://cocoapods.org/).
+
+Add OCJiraFeedbac to your Podfile:
+
+
+```
+platform :ios, '7.0'
+
+pod 'OCJiraFeedback'
+```
+
+
 ## Usage
 
 1. Adds OCJiraFeedback to your application
@@ -14,7 +28,10 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
 #import "OCJiraFeedback.h"
 ```
 
-2. Recolect the summary a description fields and send
+2. Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira intallation. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution)
+
+
+3. Recolect the summary a description fields and send
 
 For example, from an action implemented inside a controller with two textfield's outlets: 'summary' and 'description'.
 

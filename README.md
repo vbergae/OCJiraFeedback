@@ -8,9 +8,9 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
 
 ## Installation
 
-- The supported way to get JLTMDbClient is by using [CocoaPods](http://cocoapods.org/).
+- The supported way to get OCJiraFeedbsck is using [CocoaPods](http://cocoapods.org/).
 
-Add OCJiraFeedbac to your Podfile:
+Add OCJiraFeedback to your Podfile:
 
 
 ```

@@ -66,6 +66,7 @@
 		CC85FF7B18B11895009C09D1 /* OCInstanceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCInstanceConnector.h; path = Model/OCInstanceConnector.h; sourceTree = "<group>"; };
 		CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnector.m; path = Model/OCInstanceConnector.m; sourceTree = "<group>"; };
 		CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnectionTests.m; path = Model/OCInstanceConnectionTests.m; sourceTree = "<group>"; };
+		CC85FF8018B127B2009C09D1 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = SOURCE_ROOT; };
 		D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.xcconfig"; path = "Pods/Pods-OCJiraFeedback.xcconfig"; sourceTree = "<group>"; };
 		E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.xcconfig"; path = "Pods/Pods-OCJiraFeedbackTests.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				CC09E7F618AE95FC00714B92 /* OCJiraFeedback-Prefix.pch */,
+				CC85FF8018B127B2009C09D1 /* Instance.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

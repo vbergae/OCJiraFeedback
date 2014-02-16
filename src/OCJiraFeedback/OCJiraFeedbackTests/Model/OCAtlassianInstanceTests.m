@@ -61,4 +61,28 @@
     XCTAssertNotNil(self.instance.password, @"should set example password");
 }
 
+- (void)test_projectkey
+{
+    self.instance.projectKey = @"TEST";
+    XCTAssertNotNil(self.instance.projectKey, @"should set projectKey");
+}
+
+- (void)test_issueType
+{
+    self.instance.issueType = OCImproventIssueType;
+    XCTAssertTrue(self.instance.issueType > 0, @"should set issueType");
+}
+
+- (void)test_connector_without_host
+{
+    self.instance.host = nil;
+    XCTAssertThrows(self.instance.connector, @"should raise exception");
+}
+
+- (void)test_connector
+{
+    self.instance.host = @"example.atlassian.net";
+    XCTAssertNotNil(self.instance.connector, @"should create a connector");
+}
+
 @end

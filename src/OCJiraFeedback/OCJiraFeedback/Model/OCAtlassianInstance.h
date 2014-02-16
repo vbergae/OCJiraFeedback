@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class OCInstanceConnector;
+
+/**
+ Jira's issue types
+ */
+typedef NS_ENUM(NSUInteger, OCIssueType) {
+    OCBugIssueType,
+    OCImproventIssueType,
+    OCTaskIssueType
+};
+
 /**
  OCAtlassianInstance
  
@@ -31,5 +42,32 @@
  Password to authenticate
  */
 @property NSString *password;
+/**
+ Your Jira's project key
+ */
+@property NSString *projectKey;
+/**
+ Issue type used on creating it
+ */
+@property OCIssueType issueType;
+/**
+ Default HTTP connector
+ */
+@property (readonly) OCInstanceConnector *connector;
+
+/**
+ @name Issues
+ */
+
+/**
+ Creates a new issue on the server
+ 
+ @param summary
+ @param description
+ @param handler
+ */
+- (void)createIssueWithSummary:(NSString *)summary
+                   description:(NSString *)description
+                    completion:(void(^)(NSError *))handler;
 
 @end

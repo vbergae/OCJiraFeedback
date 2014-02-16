@@ -20,6 +20,8 @@
 		CC09E80F18AE95FC00714B92 /* OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC09E80E18AE95FC00714B92 /* OCJiraFeedbackTests.m */; };
 		CC85FF7618B0F089009C09D1 /* OCAtlassianInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7518B0F089009C09D1 /* OCAtlassianInstance.m */; };
 		CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */; };
+		CC85FF7D18B11895009C09D1 /* OCInstanceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */; };
+		CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		CC85FF7418B0F089009C09D1 /* OCAtlassianInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCAtlassianInstance.h; path = Model/OCAtlassianInstance.h; sourceTree = "<group>"; };
 		CC85FF7518B0F089009C09D1 /* OCAtlassianInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCAtlassianInstance.m; path = Model/OCAtlassianInstance.m; sourceTree = "<group>"; };
 		CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCAtlassianInstanceTests.m; path = Model/OCAtlassianInstanceTests.m; sourceTree = "<group>"; };
+		CC85FF7B18B11895009C09D1 /* OCInstanceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCInstanceConnector.h; path = Model/OCInstanceConnector.h; sourceTree = "<group>"; };
+		CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnector.m; path = Model/OCInstanceConnector.m; sourceTree = "<group>"; };
+		CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnectionTests.m; path = Model/OCInstanceConnectionTests.m; sourceTree = "<group>"; };
 		D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.xcconfig"; path = "Pods/Pods-OCJiraFeedback.xcconfig"; sourceTree = "<group>"; };
 		E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.xcconfig"; path = "Pods/Pods-OCJiraFeedbackTests.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +172,8 @@
 			children = (
 				CC85FF7418B0F089009C09D1 /* OCAtlassianInstance.h */,
 				CC85FF7518B0F089009C09D1 /* OCAtlassianInstance.m */,
+				CC85FF7B18B11895009C09D1 /* OCInstanceConnector.h */,
+				CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */,
+				CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC09E7FA18AE95FC00714B92 /* OCJiraFeedback.m in Sources */,
+				CC85FF7D18B11895009C09D1 /* OCInstanceConnector.m in Sources */,
 				CC85FF7618B0F089009C09D1 /* OCAtlassianInstance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +347,7 @@
 			files = (
 				CC09E80F18AE95FC00714B92 /* OCJiraFeedbackTests.m in Sources */,
 				CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */,
+				CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,19 +9,22 @@
 #import "OCAtlassianInstance.h"
 #import "OCInstanceConnector.h"
 
-NSString * const OCCreateIssuePath = @"rest/api/2/issue";
+NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
+NSString * const kOCImprovementIssue = @"Improvement";
+NSString * const kOCTaskIssue        = @"Task";
+NSString * const kOCBugIssue         = @"Bug";
 
 NSString * NSStringFromOCIssueType(OCIssueType type)
 {
     switch (type) {
-        case OCImproventIssueType:
-            return @"Improvement";
+        case OCImprovementType:
+            return kOCImprovementIssue;
             break;
-        case OCTaskIssueType:
-            return @"Task";
+        case OCTaskType:
+            return kOCTaskIssue;
             break;
-        case OCBugIssueType:
-            return @"Bug";
+        case OCBugType:
+            return kOCBugIssue;
             break;
         default:
             return nil;
@@ -31,14 +34,14 @@ NSString * NSStringFromOCIssueType(OCIssueType type)
 
 OCIssueType OCIssueTypeFromNSString(NSString *type)
 {
-    if ([type isEqualToString:@"Improvement"])
-        return OCImproventIssueType;
-    else if ([type isEqualToString:@"Task"])
-        return OCTaskIssueType;
-    else if ([type isEqualToString:@"Bug"])
-        return OCBugIssueType;
+    if ([type isEqualToString:kOCImprovementIssue])
+        return OCImprovementType;
+    else if ([type isEqualToString:kOCTaskIssue])
+        return OCTaskType;
+    else if ([type isEqualToString:kOCBugIssue])
+        return OCTaskType;
     else
-        return OCNoneIssueType;
+        return OCUnknownType;
 }
 
 @interface OCAtlassianInstance() {
@@ -102,7 +105,7 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
     NSDictionary *parameters = [self parametersWithSummary:summary
                                                description:description];
 
-    [self.connector POST:OCCreateIssuePath
+    [self.connector POST:kOCCreateIssuePath
               parameters:parameters
                  success:^(AFHTTPRequestOperation *operation,
                           id responseObject)

@@ -14,10 +14,10 @@
  Jira's issue types
  */
 typedef NS_ENUM(NSUInteger, OCIssueType) {
-    OCNoneIssueType,
-    OCBugIssueType,
-    OCImproventIssueType,
-    OCTaskIssueType
+    OCUnknownType,
+    OCBugType,
+    OCImprovementType,
+    OCTaskType
 };
 
 /**

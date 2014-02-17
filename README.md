@@ -1,7 +1,6 @@
-OCJiraFeedback
-==============
+#OCJiraFeedback
 
-#Summary
+##Overview
 
 Simple framework which sends feedback data from your apps to Atlassian Jira instances.
 
@@ -28,7 +27,9 @@ pod 'OCJiraFeedback'
 #import "OCJiraFeedback.h"
 ```
 
-* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira intallation. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution)
+* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira instance. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution)
+
+![Instance.plist example](http://files.victorberga.com/instance_plist_example.png)
 
 * Recolect the summary a description fields and send
 

@@ -3,12 +3,12 @@ OCJiraFeedback
 
 #Summary
 
-
 Simple framework which sends feedback data from your apps to Atlassian Jira instances.
+
 
 ## Installation
 
-- The supported way to get OCJiraFeedbsck is using [CocoaPods](http://cocoapods.org/).
+- The supported way to get OCJiraFeedback is using [CocoaPods](http://cocoapods.org/).
 
 Add OCJiraFeedback to your Podfile:
 

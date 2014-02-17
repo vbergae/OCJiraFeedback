@@ -22,16 +22,15 @@ pod 'OCJiraFeedback'
 
 ## Usage
 
-1. Adds OCJiraFeedback to your application
+* Add OCJiraFeedback to your application
 
 ```
 #import "OCJiraFeedback.h"
 ```
 
-2. Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira intallation. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution)
+* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira intallation. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution)
 
-
-3. Recolect the summary a description fields and send
+* Recolect the summary a description fields and send
 
 For example, from an action implemented inside a controller with two textfield's outlets: 'summary' and 'description'.
 
@@ -54,7 +53,7 @@ For example, from an action implemented inside a controller with two textfield's
 
 ### Build status
 
-Bracnh | Status
+Branch | Status
 ------------ | -------------
 master | [![Build Status](https://travis-ci.org/vbergae/OCJiraFeedback.png?branch=master)](https://travis-ci.org/vbergae/OCJiraFeedback)
 develop | [![Build Status](https://travis-ci.org/vbergae/OCJiraFeedback.png?branch=develop)](https://travis-ci.org/vbergae/OCJiraFeedback)

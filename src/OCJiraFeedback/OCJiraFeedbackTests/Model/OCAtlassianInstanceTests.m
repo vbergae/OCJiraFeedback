@@ -71,7 +71,7 @@
 
 - (void)test_issueType
 {
-    self.instance.issueType = OCImproventIssueType;
+    self.instance.issueType = OCImprovementType;
     XCTAssertTrue(self.instance.issueType > 0, @"should set issueType");
 }
 
@@ -140,7 +140,7 @@
 - (void)test_createIssue_makes_the_request
 {
     self.instance.projectKey = @"TEST";
-    self.instance.issueType  = OCImproventIssueType;
+    self.instance.issueType  = OCImprovementType;
     
     NSString *expectedPath = @"rest/api/2/issue";
     NSDictionary *expectedParams = @{

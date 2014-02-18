@@ -21,6 +21,8 @@
 		CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */; };
 		CC85FF7D18B11895009C09D1 /* OCInstanceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */; };
 		CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */; };
+		CCCF4E3518B40FAD006C8D73 /* OCJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */; };
+		CCCF4E3718B410D9006C8D73 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCCF4E3618B410D9006C8D73 /* Instance.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		CC85FF7B18B11895009C09D1 /* OCInstanceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCInstanceConnector.h; path = Model/OCInstanceConnector.h; sourceTree = "<group>"; };
 		CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnector.m; path = Model/OCInstanceConnector.m; sourceTree = "<group>"; };
 		CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnectionTests.m; path = Model/OCInstanceConnectionTests.m; sourceTree = "<group>"; };
+		CCCF4E3318B40FAD006C8D73 /* OCJiraIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraIssue.h; path = Model/OCJiraIssue.h; sourceTree = "<group>"; };
+		CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssue.m; path = Model/OCJiraIssue.m; sourceTree = "<group>"; };
+		CCCF4E3618B410D9006C8D73 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = "<group>"; };
 		CCEF745B18B1444300F6AB0A /* Instance.plist.distribution */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Instance.plist.distribution; sourceTree = SOURCE_ROOT; };
 		CCEF745C18B1446300F6AB0A /* OCJiraFeedback.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OCJiraFeedback.podspec; path = ../../../OCJiraFeedback.podspec; sourceTree = "<group>"; };
 		CCEF745D18B1446300F6AB0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 			children = (
 				CC09E80A18AE95FC00714B92 /* OCJiraFeedbackTests-Info.plist */,
 				CC09E80B18AE95FC00714B92 /* InfoPlist.strings */,
+				CCCF4E3618B410D9006C8D73 /* Instance.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 				CC85FF7518B0F089009C09D1 /* OCAtlassianInstance.m */,
 				CC85FF7B18B11895009C09D1 /* OCInstanceConnector.h */,
 				CC85FF7C18B11895009C09D1 /* OCInstanceConnector.m */,
+				CCCF4E3318B40FAD006C8D73 /* OCJiraIssue.h */,
+				CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC09E80D18AE95FC00714B92 /* InfoPlist.strings in Resources */,
+				CCCF4E3718B410D9006C8D73 /* Instance.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC09E7FA18AE95FC00714B92 /* OCJiraFeedback.m in Sources */,
+				CCCF4E3518B40FAD006C8D73 /* OCJiraIssue.m in Sources */,
 				CC85FF7D18B11895009C09D1 /* OCInstanceConnector.m in Sources */,
 				CC85FF7618B0F089009C09D1 /* OCAtlassianInstance.m in Sources */,
 			);

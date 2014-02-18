@@ -7,6 +7,8 @@
 //
 
 #import "OCAtlassianInstance.h"
+
+#import "OCJiraIssue.h"
 #import "OCInstanceConnector.h"
 
 NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
@@ -56,7 +58,9 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 @property (readwrite) OCIssueType issueType;
 
 - (NSDictionary *)parametersWithSummary:(NSString *)summary
-                            description:(NSString *)description;
+                            description:(NSString *)description __deprecated;
+
+- (NSDictionary *)parametersWith:(OCJiraIssue *)issue;
 
 @end
 
@@ -98,6 +102,27 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
     }
     
     [super setValue:value forKey:key];
+}
+
+- (void)save:(OCJiraIssue *)issue completion:(void (^)(NSError *))handler
+{
+    NSParameterAssert(issue);
+    NSParameterAssert(handler);
+    
+    NSDictionary *parameters = [self parametersWith:issue];
+    
+    [self.connector POST:kOCCreateIssuePath
+              parameters:parameters
+                 success:^(AFHTTPRequestOperation *operation,
+                           id responseObject)
+     {
+         handler(nil);
+     }
+                 failure:^(AFHTTPRequestOperation *operation,
+                           NSError *error)
+     {
+         handler(error);
+     }];
 }
 
 - (void)createIssueWithSummary:(NSString *)summary
@@ -158,6 +183,20 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
             @"project": @{ @"key" : self.projectKey },
             @"summary": summary,
             @"description": description,
+            @"issuetype": @{ @"name" : NSStringFromOCIssueType(self.issueType)}
+        }
+    };
+}
+
+- (NSDictionary *)parametersWith:(OCJiraIssue *)issue
+{
+    NSParameterAssert(issue);
+    
+    return @{
+        @"fields": @{
+            @"project": @{ @"key" : self.projectKey },
+            @"summary": issue.summary,
+            @"description": issue.description,
             @"issuetype": @{ @"name" : NSStringFromOCIssueType(self.issueType)}
         }
     };

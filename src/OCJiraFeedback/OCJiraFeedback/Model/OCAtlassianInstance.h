@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class OCJiraIssue;
 @class OCInstanceConnector;
 
 /**
@@ -48,6 +49,10 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
  */
 @property (readonly) NSString *projectKey;
 /**
+ Default issue type
+ */
+@property (readonly) OCIssueType issueType;
+/**
  Default HTTP connector
  */
 @property (readonly) OCInstanceConnector *connector;
@@ -61,9 +66,8 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
  
  @param issue
  @param handler
- 
  */
-- (void)save:(id)issue completion:(void(^)(NSError *))handler;
+- (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
 
 /**
  Creates a new issue on the server

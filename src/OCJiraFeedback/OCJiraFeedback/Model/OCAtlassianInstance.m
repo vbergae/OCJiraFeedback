@@ -57,9 +57,6 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 @property (readwrite) NSString *projectKey;
 @property (readwrite) OCIssueType issueType;
 
-- (NSDictionary *)parametersWithSummary:(NSString *)summary
-                            description:(NSString *)description __deprecated;
-
 - (NSDictionary *)parametersWith:(OCJiraIssue *)issue;
 
 @end
@@ -129,25 +126,15 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
                    description:(NSString *)description
                     completion:(void (^)(NSError *))handler
 {
-    NSAssert(summary, @"Issue summary not setted");
-    NSAssert(description, @"Issue description not setted");
-    NSAssert(handler, @"Completion handler not setted");
+    NSParameterAssert(summary);
+    NSParameterAssert(description);
+    NSParameterAssert(handler);
     
-    NSDictionary *parameters = [self parametersWithSummary:summary
-                                               description:description];
-
-    [self.connector POST:kOCCreateIssuePath
-              parameters:parameters
-                 success:^(AFHTTPRequestOperation *operation,
-                          id responseObject)
-    {
-        handler(nil);
-    }
-                failure:^(AFHTTPRequestOperation *operation,
-                          NSError *error)
-    {
-        handler(error);
-    }];
+    OCJiraIssue *issue  = OCJiraIssue.new;
+    issue.summary       = summary;
+    issue.description   = description;
+    
+    [self save:issue completion:handler];
 }
 
 #pragma mark -
@@ -171,22 +158,6 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 
 #pragma mark -
 #pragma mark Private methods
-
-- (NSDictionary *)parametersWithSummary:(NSString *)summary 
-                            description:(NSString *)description
-{
-    NSAssert(self.projectKey, @"Poject key not setted");
-    NSAssert(self.issueType > 0, @"Issue type not setted");
-    
-    return @{
-        @"fields": @{
-            @"project": @{ @"key" : self.projectKey },
-            @"summary": summary,
-            @"description": description,
-            @"issuetype": @{ @"name" : NSStringFromOCIssueType(self.issueType)}
-        }
-    };
-}
 
 - (NSDictionary *)parametersWith:(OCJiraIssue *)issue
 {

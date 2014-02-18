@@ -10,6 +10,7 @@
 #import <OCMock/OCMock.h>
 
 #import "OCAtlassianInstance.h"
+#import "OCJiraIssue.h"
 #import "OCInstanceConnector.h"
 
 @interface OCAtlassianInstanceTests : XCTestCase
@@ -87,6 +88,60 @@
 #pragma mark -
 #pragma mark Instance methods
 
+#pragma mark save:completion:
+
+- (void)test_save_completion_with_nil_issue
+{
+    XCTAssertThrows(
+        [self.instance save:nil
+                 completion:^(NSError *e) {}],
+        @"should raise argument exception"
+    );
+}
+
+- (void)test_save_completion_with_nil_handler
+{
+    XCTAssertThrows(
+        [self.instance save:OCJiraIssue.new
+                 completion:^(NSError *e) {}],
+        @"should raise argument exception"
+    );
+}
+
+- (void)test_save_completion
+{
+    NSString *expectedPath = @"rest/api/2/issue";
+    NSDictionary *expectedParams = @{
+        @"fields": @{
+            @"project": @{ @"key" : @"TEST" },
+            @"summary": @"summary",
+            @"description": @"description",
+            @"issuetype": @{ @"name" : @"Improvement"}
+        }
+    };
+    
+    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
+    [[connector expect]
+     POST:expectedPath
+     parameters:expectedParams
+     success:OCMOCK_ANY
+     failure:OCMOCK_ANY];
+    
+    OCIssueType type = OCImprovementType;
+    id instance = [OCMockObject partialMockForObject:self.instance];
+    [[[instance stub] andReturn:connector] connector];
+    [[[instance stub] andReturnValue:OCMOCK_VALUE(type)] issueType];
+    
+    OCJiraIssue *issue  = OCJiraIssue.new;
+    issue.summary       = @"summary";
+    issue.description   = @"description";
+    
+    [instance save:issue completion:^(NSError *e) {}];
+    
+    XCTAssertNoThrow([connector verify],
+                     @"should call POST:parameters:success:failure");
+}
+
 #pragma mark createIssueWithSummary:description:completion
 
 - (void)test_createIssue_without_summary
@@ -119,100 +174,17 @@
     );
 }
 
-- (void)test_create_improvement_issue_makes_the_request
+- (void)test_createIssue
 {
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Improvement"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    OCIssueType type = OCImprovementType;
     id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    [[[instance stub] andReturnValue:OCMOCK_VALUE(type)] issueType];
+    [[instance expect] save:OCMOCK_ANY completion:OCMOCK_ANY];
     
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
+    [instance createIssueWithSummary:@""
+                         description:@""
                           completion:^(NSError *e) {}];
     
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
-}
-
-- (void)test_create_bug_issue_makes_the_request
-{
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Bug"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    OCIssueType type = OCBugType;
-    id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    [[[instance stub] andReturnValue:OCMOCK_VALUE(type)] issueType];
-    
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
-                          completion:^(NSError *e) {}];
-    
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
-}
-
-- (void)test_create_task_issue_makes_the_request
-{
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Task"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    OCIssueType type = OCTaskType;
-    id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    [[[instance stub] andReturnValue:OCMOCK_VALUE(type)] issueType];
-    
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
-                          completion:^(NSError *e) {}];
-    
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
+    XCTAssertNoThrow([instance verify],
+                     @"should forward message to save:completion:");
 }
 
 @end

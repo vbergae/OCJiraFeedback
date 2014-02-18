@@ -39,7 +39,7 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
     else if ([type isEqualToString:kOCTaskIssue])
         return OCTaskType;
     else if ([type isEqualToString:kOCBugIssue])
-        return OCTaskType;
+        return OCBugType;
     else
         return OCUnknownType;
 }

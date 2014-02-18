@@ -24,7 +24,7 @@
 {
     [super setUp];
     
-    self.instance = OCAtlassianInstance.new;
+    self.instance = OCAtlassianInstance.create;
 }
 
 - (void)tearDown
@@ -47,49 +47,31 @@
 
 - (void)test_host
 {
-    self.instance.host = @"example.atlassian.net";
     XCTAssertNotNil(self.instance.host, @"should set example host");
 }
 
 - (void)test_username
 {
-    self.instance.username = @"feedback_username";
     XCTAssertNotNil(self.instance.username, @"shoudl set example user");
 }
 
 - (void)test_password
 {
-    self.instance.password = @"feedback_password";
     XCTAssertNotNil(self.instance.password, @"should set example password");
 }
 
 - (void)test_projectkey
 {
-    self.instance.projectKey = @"TEST";
     XCTAssertNotNil(self.instance.projectKey, @"should set projectKey");
-}
-
-- (void)test_issueType
-{
-    self.instance.issueType = OCImprovementType;
-    XCTAssertTrue(self.instance.issueType > 0, @"should set issueType");
-}
-
-- (void)test_connector_without_host
-{
-    self.instance.host = nil;
-    XCTAssertThrows(self.instance.connector, @"should raise exception");
 }
 
 - (void)test_connector
 {
-    self.instance.host = @"example.atlassian.net";
     XCTAssertNotNil(self.instance.connector, @"should create a connector");
 }
 
 - (void)test_connector_with_username
 {
-    self.instance.host = @"example.atlassian.net";
     id username = [OCMockObject mockForClass:NSString.class];
     id password = [OCMockObject mockForClass:NSString.class];
     
@@ -137,103 +119,103 @@
     );
 }
 
-- (void)test_create_improvement_issue_makes_the_request
-{
-    self.instance.projectKey = @"TEST";
-    self.instance.issueType  = OCImprovementType;
-    
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Improvement"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
-                          completion:^(NSError *e) {}];
-    
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
-}
+//- (void)test_create_improvement_issue_makes_the_request
+//{
+//    self.instance.projectKey = @"TEST";
+//    self.instance.issueType  = OCImprovementType;
+//    
+//    NSString *expectedPath = @"rest/api/2/issue";
+//    NSDictionary *expectedParams = @{
+//        @"fields": @{
+//            @"project": @{ @"key" : @"TEST" },
+//            @"summary": @"summary",
+//            @"description": @"description",
+//            @"issuetype": @{ @"name" : @"Improvement"}
+//        }
+//    };
+//    
+//    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
+//    [[connector expect]
+//     POST:expectedPath
+//     parameters:expectedParams
+//     success:OCMOCK_ANY
+//     failure:OCMOCK_ANY];
+//    
+//    id instance = [OCMockObject partialMockForObject:self.instance];
+//    [[[instance stub] andReturn:connector] connector];
+//    
+//    [instance createIssueWithSummary:@"summary"
+//                         description:@"description"
+//                          completion:^(NSError *e) {}];
+//    
+//    XCTAssertNoThrow([connector verify],
+//                     @"should call POST:parameters:success:failure");
+//}
 
-- (void)test_create_bug_issue_makes_the_request
-{
-    self.instance.projectKey = @"TEST";
-    self.instance.issueType  = OCBugType;
-    
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Bug"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
-                          completion:^(NSError *e) {}];
-    
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
-}
+//- (void)test_create_bug_issue_makes_the_request
+//{
+//    self.instance.projectKey = @"TEST";
+//    self.instance.issueType  = OCBugType;
+//    
+//    NSString *expectedPath = @"rest/api/2/issue";
+//    NSDictionary *expectedParams = @{
+//        @"fields": @{
+//            @"project": @{ @"key" : @"TEST" },
+//            @"summary": @"summary",
+//            @"description": @"description",
+//            @"issuetype": @{ @"name" : @"Bug"}
+//        }
+//    };
+//    
+//    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
+//    [[connector expect]
+//     POST:expectedPath
+//     parameters:expectedParams
+//     success:OCMOCK_ANY
+//     failure:OCMOCK_ANY];
+//    
+//    id instance = [OCMockObject partialMockForObject:self.instance];
+//    [[[instance stub] andReturn:connector] connector];
+//    
+//    [instance createIssueWithSummary:@"summary"
+//                         description:@"description"
+//                          completion:^(NSError *e) {}];
+//    
+//    XCTAssertNoThrow([connector verify],
+//                     @"should call POST:parameters:success:failure");
+//}
 
-- (void)test_create_task_issue_makes_the_request
-{
-    self.instance.projectKey = @"TEST";
-    self.instance.issueType  = OCTaskType;
-    
-    NSString *expectedPath = @"rest/api/2/issue";
-    NSDictionary *expectedParams = @{
-        @"fields": @{
-            @"project": @{ @"key" : @"TEST" },
-            @"summary": @"summary",
-            @"description": @"description",
-            @"issuetype": @{ @"name" : @"Task"}
-        }
-    };
-    
-    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
-    [[connector expect]
-     POST:expectedPath
-     parameters:expectedParams
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    id instance = [OCMockObject partialMockForObject:self.instance];
-    [[[instance stub] andReturn:connector] connector];
-    
-    [instance createIssueWithSummary:@"summary"
-                         description:@"description"
-                          completion:^(NSError *e) {}];
-    
-    XCTAssertNoThrow([connector verify],
-                     @"should call POST:parameters:success:failure");
-}
+//- (void)test_create_task_issue_makes_the_request
+//{
+//    self.instance.projectKey = @"TEST";
+//    self.instance.issueType  = OCTaskType;
+//    
+//    NSString *expectedPath = @"rest/api/2/issue";
+//    NSDictionary *expectedParams = @{
+//        @"fields": @{
+//            @"project": @{ @"key" : @"TEST" },
+//            @"summary": @"summary",
+//            @"description": @"description",
+//            @"issuetype": @{ @"name" : @"Task"}
+//        }
+//    };
+//    
+//    id connector = [OCMockObject mockForClass:OCInstanceConnector.class];
+//    [[connector expect]
+//     POST:expectedPath
+//     parameters:expectedParams
+//     success:OCMOCK_ANY
+//     failure:OCMOCK_ANY];
+//    
+//    id instance = [OCMockObject partialMockForObject:self.instance];
+//    [[[instance stub] andReturn:connector] connector];
+//    
+//    [instance createIssueWithSummary:@"summary"
+//                         description:@"description"
+//                          completion:^(NSError *e) {}];
+//    
+//    XCTAssertNoThrow([connector verify],
+//                     @"should call POST:parameters:success:failure");
+//}
 
 @end

@@ -28,37 +28,42 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
 @interface OCAtlassianInstance : NSObject
 
 /**
- @name Configure the instance
+ @name Connection properties
  */
 
 /**
  Host name where your instance lives (example: myinstance.atlassian.net)
  */
-@property NSString *host;
+@property (readonly) NSString *host;
 /**
  Username to connect and create the feedback's issue
  */
-@property NSString *username;
+@property (readonly) NSString *username;
 /**
  Password to authenticate
  */
-@property NSString *password;
+@property (readonly) NSString *password;
 /**
  Your Jira's project key
  */
-@property NSString *projectKey;
-/**
- Issue type used on creating it
- */
-@property OCIssueType issueType;
+@property (readonly) NSString *projectKey;
 /**
  Default HTTP connector
  */
 @property (readonly) OCInstanceConnector *connector;
 
 /**
- @name Issues
+ @name Save issues
  */
+
+/**
+ Saves the issue on the remote
+ 
+ @param issue
+ @param handler
+ 
+ */
+- (void)save:(id)issue completion:(void(^)(NSError *))handler;
 
 /**
  Creates a new issue on the server
@@ -69,7 +74,7 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
  */
 - (void)createIssueWithSummary:(NSString *)summary
                    description:(NSString *)description
-                    completion:(void(^)(NSError *))handler;
+                    completion:(void(^)(NSError *))handler __deprecated;
 
 /**
  @name Loading instance

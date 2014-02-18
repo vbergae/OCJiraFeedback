@@ -49,6 +49,12 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
     OCInstanceConnector *_connector;
 }
 
+@property (readwrite) NSString *host;
+@property (readwrite) NSString *username;
+@property (readwrite) NSString *password;
+@property (readwrite) NSString *projectKey;
+@property (readwrite) OCIssueType issueType;
+
 - (NSDictionary *)parametersWithSummary:(NSString *)summary
                             description:(NSString *)description;
 
@@ -124,12 +130,14 @@ OCIssueType OCIssueTypeFromNSString(NSString *type)
 
 + (instancetype)create
 {
-    NSString *path = [[NSBundle mainBundle]
-                           pathForResource:@"Instance"
-                           ofType:@"plist"];
-    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSAssert(plist, @"Instance.plist file not found, please check your configuration");
+    NSString *path = nil;
+    for (NSBundle *bundle in NSBundle.allBundles) {
+        path = [bundle pathForResource:@"Instance" ofType:@"plist"];
+        if (path) break;
+    }
+    NSAssert(path, @"Instance.plist file not found, please check your configuration");
     
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
     OCAtlassianInstance *instance = OCAtlassianInstance.new;
     [instance setValuesForKeysWithDictionary:plist];
     

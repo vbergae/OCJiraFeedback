@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ OCJiraIsuue
+ 
+ Class used to represent an issue on Jira
+ */
 @interface OCJiraIssue : NSObject
 
+/**
+ Brief description
+ */
 @property NSString *summary;
-
+/**
+ Detailed description
+ */
 @property NSString *description;
 
 @end

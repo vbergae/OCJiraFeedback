@@ -17,9 +17,10 @@
 		CC09E80418AE95FC00714B92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E80318AE95FC00714B92 /* UIKit.framework */; };
 		CC09E80718AE95FC00714B92 /* libOCJiraFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E7EF18AE95FC00714B92 /* libOCJiraFeedback.a */; };
 		CC09E80D18AE95FC00714B92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC09E80B18AE95FC00714B92 /* InfoPlist.strings */; };
-		CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */; };
 		CC85FF7D18B11895009C09D1 /* OCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7C18B11895009C09D1 /* OCConnectionManager.m */; };
-		CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */; };
+		CCCE17C818B51D3700ED8A64 /* OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */; };
+		CCCE17CD18B51FE800ED8A64 /* OCConnectionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */; };
+		CCCE17CF18B5242E00ED8A64 /* OCJiraIssueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */; };
 		CCCF4E3518B40FAD006C8D73 /* OCJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */; };
 		CCCF4E3718B410D9006C8D73 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCCF4E3618B410D9006C8D73 /* Instance.plist */; };
 /* End PBXBuildFile section */
@@ -59,10 +60,11 @@
 		CC09E80318AE95FC00714B92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		CC09E80A18AE95FC00714B92 /* OCJiraFeedbackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCJiraFeedbackTests-Info.plist"; sourceTree = "<group>"; };
 		CC09E80C18AE95FC00714B92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCAtlassianInstanceTests.m; path = Model/OCAtlassianInstanceTests.m; sourceTree = "<group>"; };
 		CC85FF7B18B11895009C09D1 /* OCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCConnectionManager.h; path = Model/OCConnectionManager.h; sourceTree = "<group>"; };
 		CC85FF7C18B11895009C09D1 /* OCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManager.m; path = Model/OCConnectionManager.m; sourceTree = "<group>"; };
-		CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCInstanceConnectionTests.m; path = Model/OCInstanceConnectionTests.m; sourceTree = "<group>"; };
+		CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCJiraFeedbackTests.m; sourceTree = "<group>"; };
+		CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManagerTests.m; path = Model/OCConnectionManagerTests.m; sourceTree = "<group>"; };
+		CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssueTests.m; path = Model/OCJiraIssueTests.m; sourceTree = "<group>"; };
 		CCCF4E3318B40FAD006C8D73 /* OCJiraIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraIssue.h; path = Model/OCJiraIssue.h; sourceTree = "<group>"; };
 		CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssue.m; path = Model/OCJiraIssue.m; sourceTree = "<group>"; };
 		CCCF4E3618B410D9006C8D73 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				CC85FF7818B0F09B009C09D1 /* Model */,
 				CC09E80918AE95FC00714B92 /* Supporting Files */,
+				CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */,
 			);
 			path = OCJiraFeedbackTests;
 			sourceTree = "<group>";
@@ -189,8 +192,8 @@
 		CC85FF7818B0F09B009C09D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC85FF7918B0F0CA009C09D1 /* OCAtlassianInstanceTests.m */,
-				CC85FF7E18B1196E009C09D1 /* OCInstanceConnectionTests.m */,
+				CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */,
+				CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -354,8 +357,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC85FF7A18B0F0CA009C09D1 /* OCAtlassianInstanceTests.m in Sources */,
-				CC85FF7F18B1196E009C09D1 /* OCInstanceConnectionTests.m in Sources */,
+				CCCE17CF18B5242E00ED8A64 /* OCJiraIssueTests.m in Sources */,
+				CCCE17CD18B51FE800ED8A64 /* OCConnectionManagerTests.m in Sources */,
+				CCCE17C818B51D3700ED8A64 /* OCJiraFeedbackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

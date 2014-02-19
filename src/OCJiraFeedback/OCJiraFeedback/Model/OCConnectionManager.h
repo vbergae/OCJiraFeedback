@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
 
-@interface OCInstanceConnector : AFHTTPRequestOperationManager
+@class OCJiraIssue;
+
+@interface OCConnectionManager : AFHTTPRequestOperationManager
+
+@property (readonly) NSString *issueTypeName;
+
+- (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
+
++ (instancetype)sharedManager;
 
 @end

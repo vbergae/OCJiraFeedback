@@ -27,7 +27,7 @@
 {
     id manager = [OCMockObject mockForClass:OCConnectionManager.class];
     [[[manager stub] andReturn:manager] sharedManager];
-    [[[manager stub] andReturn:@"Task"] issueTypeName];
+    [[[manager stub] andReturn:@"Task"] issueType];
     [[manager expect] save:OCMOCK_ANY completion:OCMOCK_ANY];
     
     [OCJiraFeedback feedbackWithSummary:@"summary"

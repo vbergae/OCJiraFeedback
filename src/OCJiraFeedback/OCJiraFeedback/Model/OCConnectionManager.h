@@ -13,7 +13,7 @@
 
 @interface OCConnectionManager : AFHTTPRequestOperationManager
 
-@property (readonly) NSString *issueTypeName;
+@property (readonly) NSString *issueType;
 
 - (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
 

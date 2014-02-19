@@ -17,12 +17,10 @@
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler
 {
-    NSString *typeName  = OCConnectionManager.sharedManager.issueTypeName;
-    
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = summary;
     issue.description   = description;
-    issue.type          = OCIssueTypeFromNSString(typeName);
+    issue.type          = OCConnectionManager.sharedManager.issueType;
     
     [OCConnectionManager.sharedManager save:issue completion:handler];
 }

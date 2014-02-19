@@ -59,15 +59,6 @@ static NSDictionary * ReadInstanceData()
 #pragma mark -
 #pragma mark Instance methods
 
-
-- (void)setValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqualToString:kOCIssueTypeKey])
-        key = @"issueTypeName";
-    
-    [super setValue:value forKey:key];
-}
-
 - (void)save:(OCJiraIssue *)issue completion:(void (^)(NSError *))handler
 {
     NSParameterAssert(issue);
@@ -122,7 +113,7 @@ static NSDictionary * ReadInstanceData()
             @"project": @{ @"key" : self.projectKey },
             @"summary": issue.summary,
             @"description": issue.description,
-            @"issuetype": @{ @"name" : issue.typeName}
+            @"issuetype": @{ @"name" : issue.type}
         }
     };
 }

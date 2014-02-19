@@ -44,12 +44,5 @@ OCIssueType OCIssueTypeFromNSString(NSString *typeName)
 
 @implementation OCJiraIssue
 
-#pragma mark -
-#pragma mark Properties
-
-- (NSString *)typeName
-{
-    return NSStringFromOCIssueType(self.type);
-}
 
 @end

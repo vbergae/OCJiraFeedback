@@ -18,9 +18,9 @@ typedef NS_ENUM(NSUInteger, OCIssueType) {
     OCTaskType
 };
 
-NSString * NSStringFromOCIssueType(OCIssueType type);
+NSString * NSStringFromOCIssueType(OCIssueType type) __deprecated;
 
-OCIssueType OCIssueTypeFromNSString(NSString *typeName);
+OCIssueType OCIssueTypeFromNSString(NSString *typeName __deprecated);
 
 /**
  OCJiraIsuue
@@ -38,8 +38,6 @@ OCIssueType OCIssueTypeFromNSString(NSString *typeName);
  */
 @property NSString *description;
 
-@property OCIssueType type;
-
-@property (readonly) NSString *typeName;
+@property NSString *type;
 
 @end

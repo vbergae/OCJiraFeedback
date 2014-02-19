@@ -26,7 +26,7 @@
 
 - (void)test_issueTypeName_returns_fixture_configuration
 {
-    NSString *result = OCConnectionManager.sharedManager.issueTypeName;
+    NSString *result = OCConnectionManager.sharedManager.issueType;
     XCTAssertEqualObjects(result, @"Improvement",
                           @"should return value saved on Instance.plist file");
 }
@@ -82,10 +82,10 @@
      success:OCMOCK_ANY
      failure:OCMOCK_ANY];
     
-    OCJiraIssue *issue = OCJiraIssue.new;
-    issue.summary = @"summary";
-    issue.description = @"description";
-    issue.type = OCImprovementType;
+    OCJiraIssue *issue  = OCJiraIssue.new;
+    issue.summary       = @"summary";
+    issue.description   = @"description";
+    issue.type          = @"Improvement";
     
     [manager save:issue completion:^(NSError *e) {}];
     XCTAssertNoThrow([manager verify],

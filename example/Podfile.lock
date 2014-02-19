@@ -17,14 +17,15 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
-  - OCJiraFeedback (0.1.0):
+  - OCJiraFeedback (0.2.1):
     - AFNetworking
 
 DEPENDENCIES:
+  - AFNetworking
   - OCJiraFeedback
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
-  OCJiraFeedback: 94a0d67fb7428c117ae34cc49f7e68b48e5734da
+  OCJiraFeedback: 3233fb4cb29ea21e33c17d049e6bc3f6142b3121
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.29.0

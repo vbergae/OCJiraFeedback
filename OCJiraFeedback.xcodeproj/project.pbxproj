@@ -10,19 +10,18 @@
 		682506EB9EB84443BED361A3 /* libPods-OCJiraFeedbackTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */; };
 		C5E99CC616B94AD28EF17389 /* libPods-OCJiraFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B80D5364BFE04CFFBB651A96 /* libPods-OCJiraFeedback.a */; };
 		CC09E7F318AE95FC00714B92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E7F218AE95FC00714B92 /* Foundation.framework */; };
-		CC09E7F818AE95FC00714B92 /* OCJiraFeedback.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CC09E7F718AE95FC00714B92 /* OCJiraFeedback.h */; };
-		CC09E7FA18AE95FC00714B92 /* OCJiraFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = CC09E7F918AE95FC00714B92 /* OCJiraFeedback.m */; };
 		CC09E80118AE95FC00714B92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E80018AE95FC00714B92 /* XCTest.framework */; };
 		CC09E80218AE95FC00714B92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E7F218AE95FC00714B92 /* Foundation.framework */; };
 		CC09E80418AE95FC00714B92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E80318AE95FC00714B92 /* UIKit.framework */; };
 		CC09E80718AE95FC00714B92 /* libOCJiraFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09E7EF18AE95FC00714B92 /* libOCJiraFeedback.a */; };
-		CC09E80D18AE95FC00714B92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC09E80B18AE95FC00714B92 /* InfoPlist.strings */; };
-		CC85FF7D18B11895009C09D1 /* OCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC85FF7C18B11895009C09D1 /* OCConnectionManager.m */; };
-		CCCE17C818B51D3700ED8A64 /* OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */; };
-		CCCE17CD18B51FE800ED8A64 /* OCConnectionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */; };
-		CCCE17CF18B5242E00ED8A64 /* OCJiraIssueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */; };
-		CCCF4E3518B40FAD006C8D73 /* OCJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */; };
-		CCCF4E3718B410D9006C8D73 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCCF4E3618B410D9006C8D73 /* Instance.plist */; };
+		CC0EC5F118B563E300593C03 /* OCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC5EE18B563E300593C03 /* OCConnectionManager.m */; };
+		CC0EC5F218B563E300593C03 /* OCJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC5F018B563E300593C03 /* OCJiraIssue.m */; };
+		CC0EC5F518B563FA00593C03 /* OCJiraFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC5F418B563FA00593C03 /* OCJiraFeedback.m */; };
+		CC0EC60418B564FD00593C03 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC0EC5FE18B564FD00593C03 /* Instance.plist */; };
+		CC0EC60518B564FD00593C03 /* OCConnectionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC5FF18B564FD00593C03 /* OCConnectionManagerTests.m */; };
+		CC0EC60618B564FD00593C03 /* OCJiraIssueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC60018B564FD00593C03 /* OCJiraIssueTests.m */; };
+		CC0EC60818B564FD00593C03 /* OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0EC60218B564FD00593C03 /* OCJiraFeedbackTests.m */; };
+		CC0EC60B18B5651600593C03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0EC60918B5651600593C03 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				CC09E7F818AE95FC00714B92 /* OCJiraFeedback.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,26 +50,26 @@
 		B80D5364BFE04CFFBB651A96 /* libPods-OCJiraFeedback.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedback.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC09E7EF18AE95FC00714B92 /* libOCJiraFeedback.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCJiraFeedback.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC09E7F218AE95FC00714B92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CC09E7F618AE95FC00714B92 /* OCJiraFeedback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCJiraFeedback-Prefix.pch"; sourceTree = "<group>"; };
-		CC09E7F718AE95FC00714B92 /* OCJiraFeedback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCJiraFeedback.h; sourceTree = "<group>"; };
-		CC09E7F918AE95FC00714B92 /* OCJiraFeedback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCJiraFeedback.m; sourceTree = "<group>"; };
 		CC09E7FF18AE95FC00714B92 /* OCJiraFeedbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCJiraFeedbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC09E80018AE95FC00714B92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CC09E80318AE95FC00714B92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		CC09E80A18AE95FC00714B92 /* OCJiraFeedbackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCJiraFeedbackTests-Info.plist"; sourceTree = "<group>"; };
-		CC09E80C18AE95FC00714B92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CC85FF7B18B11895009C09D1 /* OCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCConnectionManager.h; path = Model/OCConnectionManager.h; sourceTree = "<group>"; };
-		CC85FF7C18B11895009C09D1 /* OCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManager.m; path = Model/OCConnectionManager.m; sourceTree = "<group>"; };
-		CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCJiraFeedbackTests.m; sourceTree = "<group>"; };
-		CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManagerTests.m; path = Model/OCConnectionManagerTests.m; sourceTree = "<group>"; };
-		CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssueTests.m; path = Model/OCJiraIssueTests.m; sourceTree = "<group>"; };
-		CCCF4E3318B40FAD006C8D73 /* OCJiraIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraIssue.h; path = Model/OCJiraIssue.h; sourceTree = "<group>"; };
-		CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssue.m; path = Model/OCJiraIssue.m; sourceTree = "<group>"; };
-		CCCF4E3618B410D9006C8D73 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = "<group>"; };
-		CCEF745B18B1444300F6AB0A /* Instance.plist.distribution */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Instance.plist.distribution; sourceTree = SOURCE_ROOT; };
-		CCEF745C18B1446300F6AB0A /* OCJiraFeedback.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OCJiraFeedback.podspec; path = ../../../OCJiraFeedback.podspec; sourceTree = "<group>"; };
-		CCEF745D18B1446300F6AB0A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		CCEF745E18B1446300F6AB0A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		CC0EC5ED18B563E300593C03 /* OCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCConnectionManager.h; path = Classes/OCConnectionManager.h; sourceTree = SOURCE_ROOT; };
+		CC0EC5EE18B563E300593C03 /* OCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManager.m; path = Classes/OCConnectionManager.m; sourceTree = SOURCE_ROOT; };
+		CC0EC5EF18B563E300593C03 /* OCJiraIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraIssue.h; path = Classes/OCJiraIssue.h; sourceTree = SOURCE_ROOT; };
+		CC0EC5F018B563E300593C03 /* OCJiraIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssue.m; path = Classes/OCJiraIssue.m; sourceTree = SOURCE_ROOT; };
+		CC0EC5F318B563FA00593C03 /* OCJiraFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraFeedback.h; path = Classes/OCJiraFeedback.h; sourceTree = SOURCE_ROOT; };
+		CC0EC5F418B563FA00593C03 /* OCJiraFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraFeedback.m; path = Classes/OCJiraFeedback.m; sourceTree = SOURCE_ROOT; };
+		CC0EC5F618B5642500593C03 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		CC0EC5F718B5642500593C03 /* OCJiraFeedback.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = OCJiraFeedback.podspec; sourceTree = SOURCE_ROOT; };
+		CC0EC5F818B5642500593C03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		CC0EC5F918B5642500593C03 /* Instance.plist.distribution */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Instance.plist.distribution; path = Resources/Instance.plist.distribution; sourceTree = SOURCE_ROOT; };
+		CC0EC5FA18B5642500593C03 /* OCJiraFeedback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "OCJiraFeedback-Prefix.pch"; path = "Resources/OCJiraFeedback-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		CC0EC5FE18B564FD00593C03 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instance.plist; path = Tests/Instance.plist; sourceTree = SOURCE_ROOT; };
+		CC0EC5FF18B564FD00593C03 /* OCConnectionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCConnectionManagerTests.m; path = Tests/Model/OCConnectionManagerTests.m; sourceTree = SOURCE_ROOT; };
+		CC0EC60018B564FD00593C03 /* OCJiraIssueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraIssueTests.m; path = Tests/Model/OCJiraIssueTests.m; sourceTree = SOURCE_ROOT; };
+		CC0EC60118B564FD00593C03 /* OCJiraFeedbackTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "OCJiraFeedbackTests-Info.plist"; path = "Tests/OCJiraFeedbackTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CC0EC60218B564FD00593C03 /* OCJiraFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraFeedbackTests.m; path = Tests/OCJiraFeedbackTests.m; sourceTree = SOURCE_ROOT; };
+		CC0EC60A18B5651600593C03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Tests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.xcconfig"; path = "Pods/Pods-OCJiraFeedback.xcconfig"; sourceTree = "<group>"; };
 		E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.xcconfig"; path = "Pods/Pods-OCJiraFeedbackTests.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +103,8 @@
 		CC09E7E618AE95FC00714B92 = {
 			isa = PBXGroup;
 			children = (
-				CC09E7F418AE95FC00714B92 /* OCJiraFeedback */,
-				CC09E80818AE95FC00714B92 /* OCJiraFeedbackTests */,
+				CC09E7F418AE95FC00714B92 /* Classes */,
+				CC09E80818AE95FC00714B92 /* Tests */,
 				CC09E7F118AE95FC00714B92 /* Frameworks */,
 				CC09E7F018AE95FC00714B92 /* Products */,
 				D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */,
@@ -135,67 +133,61 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC09E7F418AE95FC00714B92 /* OCJiraFeedback */ = {
+		CC09E7F418AE95FC00714B92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CC85FF7718B0F08E009C09D1 /* Model */,
-				CC09E7F718AE95FC00714B92 /* OCJiraFeedback.h */,
-				CC09E7F918AE95FC00714B92 /* OCJiraFeedback.m */,
+				CC0EC5F318B563FA00593C03 /* OCJiraFeedback.h */,
+				CC0EC5F418B563FA00593C03 /* OCJiraFeedback.m */,
+				CC0EC5ED18B563E300593C03 /* OCConnectionManager.h */,
+				CC0EC5EE18B563E300593C03 /* OCConnectionManager.m */,
+				CC0EC5EF18B563E300593C03 /* OCJiraIssue.h */,
+				CC0EC5F018B563E300593C03 /* OCJiraIssue.m */,
 				CC09E7F518AE95FC00714B92 /* Supporting Files */,
 			);
+			name = Classes;
 			path = OCJiraFeedback;
 			sourceTree = "<group>";
 		};
 		CC09E7F518AE95FC00714B92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF745C18B1446300F6AB0A /* OCJiraFeedback.podspec */,
-				CCEF745D18B1446300F6AB0A /* README.md */,
-				CCEF745E18B1446300F6AB0A /* LICENSE */,
-				CCEF745B18B1444300F6AB0A /* Instance.plist.distribution */,
-				CC09E7F618AE95FC00714B92 /* OCJiraFeedback-Prefix.pch */,
+				CC0EC5F618B5642500593C03 /* LICENSE */,
+				CC0EC5F718B5642500593C03 /* OCJiraFeedback.podspec */,
+				CC0EC5F818B5642500593C03 /* README.md */,
+				CC0EC5F918B5642500593C03 /* Instance.plist.distribution */,
+				CC0EC5FA18B5642500593C03 /* OCJiraFeedback-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC09E80818AE95FC00714B92 /* OCJiraFeedbackTests */ = {
+		CC09E80818AE95FC00714B92 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				CC85FF7818B0F09B009C09D1 /* Model */,
+				CC0EC60C18B5651F00593C03 /* Classes */,
 				CC09E80918AE95FC00714B92 /* Supporting Files */,
-				CCCE17C718B51D3700ED8A64 /* OCJiraFeedbackTests.m */,
 			);
+			name = Tests;
 			path = OCJiraFeedbackTests;
 			sourceTree = "<group>";
 		};
 		CC09E80918AE95FC00714B92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CC09E80A18AE95FC00714B92 /* OCJiraFeedbackTests-Info.plist */,
-				CC09E80B18AE95FC00714B92 /* InfoPlist.strings */,
-				CCCF4E3618B410D9006C8D73 /* Instance.plist */,
+				CC0EC60918B5651600593C03 /* InfoPlist.strings */,
+				CC0EC5FE18B564FD00593C03 /* Instance.plist */,
+				CC0EC60118B564FD00593C03 /* OCJiraFeedbackTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC85FF7718B0F08E009C09D1 /* Model */ = {
+		CC0EC60C18B5651F00593C03 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CC85FF7B18B11895009C09D1 /* OCConnectionManager.h */,
-				CC85FF7C18B11895009C09D1 /* OCConnectionManager.m */,
-				CCCF4E3318B40FAD006C8D73 /* OCJiraIssue.h */,
-				CCCF4E3418B40FAD006C8D73 /* OCJiraIssue.m */,
+				CC0EC5FF18B564FD00593C03 /* OCConnectionManagerTests.m */,
+				CC0EC60018B564FD00593C03 /* OCJiraIssueTests.m */,
+				CC0EC60218B564FD00593C03 /* OCJiraFeedbackTests.m */,
 			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		CC85FF7818B0F09B009C09D1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CCCE17CC18B51FE800ED8A64 /* OCConnectionManagerTests.m */,
-				CCCE17CE18B5242E00ED8A64 /* OCJiraIssueTests.m */,
-			);
-			name = Model;
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +264,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC09E80D18AE95FC00714B92 /* InfoPlist.strings in Resources */,
-				CCCF4E3718B410D9006C8D73 /* Instance.plist in Resources */,
+				CC0EC60418B564FD00593C03 /* Instance.plist in Resources */,
+				CC0EC60B18B5651600593C03 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC09E7FA18AE95FC00714B92 /* OCJiraFeedback.m in Sources */,
-				CCCF4E3518B40FAD006C8D73 /* OCJiraIssue.m in Sources */,
-				CC85FF7D18B11895009C09D1 /* OCConnectionManager.m in Sources */,
+				CC0EC5F518B563FA00593C03 /* OCJiraFeedback.m in Sources */,
+				CC0EC5F118B563E300593C03 /* OCConnectionManager.m in Sources */,
+				CC0EC5F218B563E300593C03 /* OCJiraIssue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,9 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCCE17CF18B5242E00ED8A64 /* OCJiraIssueTests.m in Sources */,
-				CCCE17CD18B51FE800ED8A64 /* OCConnectionManagerTests.m in Sources */,
-				CCCE17C818B51D3700ED8A64 /* OCJiraFeedbackTests.m in Sources */,
+				CC0EC60818B564FD00593C03 /* OCJiraFeedbackTests.m in Sources */,
+				CC0EC60618B564FD00593C03 /* OCJiraIssueTests.m in Sources */,
+				CC0EC60518B564FD00593C03 /* OCConnectionManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +366,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CC09E80B18AE95FC00714B92 /* InfoPlist.strings */ = {
+		CC0EC60918B5651600593C03 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CC09E80C18AE95FC00714B92 /* en */,
+				CC0EC60A18B5651600593C03 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -461,7 +453,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/OCJiraFeedback.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OCJiraFeedback/OCJiraFeedback-Prefix.pch";
+				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -474,7 +466,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/OCJiraFeedback.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OCJiraFeedback/OCJiraFeedback-Prefix.pch";
+				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -492,12 +484,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OCJiraFeedback/OCJiraFeedback-Prefix.pch";
+				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "OCJiraFeedbackTests/OCJiraFeedbackTests-Info.plist";
+				INFOPLIST_FILE = "Tests/OCJiraFeedbackTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -514,8 +506,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OCJiraFeedback/OCJiraFeedback-Prefix.pch";
-				INFOPLIST_FILE = "OCJiraFeedbackTests/OCJiraFeedbackTests-Info.plist";
+				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
+				INFOPLIST_FILE = "Tests/OCJiraFeedbackTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

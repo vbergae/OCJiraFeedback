@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0EC60E18B5679000593C03 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CC0EC60D18B5679000593C03 /* Podfile */; };
 		CCEF746C18B14CC500F6AB0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEF746B18B14CC500F6AB0A /* Foundation.framework */; };
 		CCEF746E18B14CC500F6AB0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEF746D18B14CC500F6AB0A /* CoreGraphics.framework */; };
 		CCEF747018B14CC500F6AB0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEF746F18B14CC500F6AB0A /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2EA32BE5171248E1810A3917 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0EC60D18B5679000593C03 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CCEF746818B14CC500F6AB0A /* OCJiraFeedbackExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCJiraFeedbackExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCEF746B18B14CC500F6AB0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCEF746D18B14CC500F6AB0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +141,7 @@
 		CCEF747218B14CC500F6AB0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC0EC60D18B5679000593C03 /* Podfile */,
 				CCEF74A318B153BC00F6AB0A /* Instance.plist */,
 				CCEF747318B14CC500F6AB0A /* OCJiraFeedbackExample-Info.plist */,
 				CCEF747418B14CC500F6AB0A /* InfoPlist.strings */,
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0EC60E18B5679000593C03 /* Podfile in Resources */,
 				CCEF748418B14CC500F6AB0A /* Images.xcassets in Resources */,
 				CCEF74A418B153BC00F6AB0A /* Instance.plist in Resources */,
 				CCEF747618B14CC500F6AB0A /* InfoPlist.strings in Resources */,

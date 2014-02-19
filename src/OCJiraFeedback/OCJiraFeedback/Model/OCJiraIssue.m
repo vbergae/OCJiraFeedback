@@ -8,6 +8,48 @@
 
 #import "OCJiraIssue.h"
 
+NSString * const kOCImprovementIssue = @"Improvement";
+NSString * const kOCTaskIssue        = @"Task";
+NSString * const kOCBugIssue         = @"Bug";
+
+NSString * NSStringFromOCIssueType(OCIssueType type)
+{
+    switch (type) {
+        case OCImprovementType:
+            return kOCImprovementIssue;
+            break;
+        case OCTaskType:
+            return kOCTaskIssue;
+            break;
+        case OCBugType:
+            return kOCBugIssue;
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+OCIssueType OCIssueTypeFromNSString(NSString *typeName)
+{
+    if ([typeName isEqualToString:kOCImprovementIssue])
+        return OCImprovementType;
+    else if ([typeName isEqualToString:kOCTaskIssue])
+        return OCTaskType;
+    else if ([typeName isEqualToString:kOCBugIssue])
+        return OCBugType;
+    else
+        return OCUnknownType;
+}
+
 @implementation OCJiraIssue
+
+#pragma mark -
+#pragma mark Properties
+
+- (NSString *)typeName
+{
+    return NSStringFromOCIssueType(self.type);
+}
 
 @end

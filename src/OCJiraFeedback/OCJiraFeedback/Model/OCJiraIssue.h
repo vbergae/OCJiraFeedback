@@ -9,20 +9,6 @@
 #import <Foundation/Foundation.h>
 
 /**
- Jira's issue types
- */
-typedef NS_ENUM(NSUInteger, OCIssueType) {
-    OCUnknownType,
-    OCBugType,
-    OCImprovementType,
-    OCTaskType
-};
-
-NSString * NSStringFromOCIssueType(OCIssueType type) __deprecated;
-
-OCIssueType OCIssueTypeFromNSString(NSString *typeName __deprecated);
-
-/**
  OCJiraIsuue
  
  Class used to represent an issue on Jira
@@ -37,7 +23,10 @@ OCIssueType OCIssueTypeFromNSString(NSString *typeName __deprecated);
  Detailed description
  */
 @property NSString *description;
-
+/**
+ String used as issue type (Improvement, Task, Bug, etc..) when it's creted
+ on Jira instance
+ */
 @property NSString *type;
 
 @end

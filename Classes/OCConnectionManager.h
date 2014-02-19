@@ -33,6 +33,31 @@
 @property (readonly) NSString *issueType;
 
 /**
+ @name Initialization
+ */
+
+/**
+ Default initializer. 
+ 
+ Creates a new instance using 'options' dictionary
+ with data about your Jira instance.
+ 
+ This initialzer expects options with the structure:
+ 
+    @{
+        @"host"         : @"hostname.example.com",
+        @"username"     : @"jira_username",
+        @"password"     : @"1234",
+        @"projectKey"   : @"TEST",
+        @"issueType"    : @"Bug"
+    }
+ 
+ @param options Dictionary with connection data
+ @return Instance configured with the values of options
+ */
+- (id)initWithOptions:(NSDictionary *)options;
+
+/**
  @name Instance methods
  */
 

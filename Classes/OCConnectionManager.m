@@ -42,11 +42,17 @@ static NSDictionary * ReadInstanceData()
 #pragma mark -
 #pragma mark Initialization
 
-- (id)initWithBaseURL:(NSURL *)url
+- (id)initWithOptions:(NSDictionary *)options
 {
-    self = [super initWithBaseURL:url];
+    NSParameterAssert(options);
+    NSString *URLString = [NSString stringWithFormat:@"https://%@",
+                           options[kOCHostKey]];
+    NSURL *URL = [NSURL URLWithString:URLString];
+    
+    self = [super initWithBaseURL:URL];
     if (self) {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
+        [self setValuesForKeysWithDictionary:options];
     }
     
     return self;
@@ -85,13 +91,7 @@ static NSDictionary * ReadInstanceData()
     static OCConnectionManager *manager;
     dispatch_once(&onceToken, ^{
         NSDictionary *keyedValues = ReadInstanceData();
-        NSString *URLString = [NSString stringWithFormat:@"https://%@",
-                               keyedValues[kOCHostKey]];
-        NSURL *URL = [NSURL URLWithString:URLString];
-        NSAssert(URL, @"Unknown host type %@", URLString);
-        
-        manager = [[OCConnectionManager alloc] initWithBaseURL:URL];
-        [manager setValuesForKeysWithDictionary:keyedValues];
+        manager = [[OCConnectionManager alloc] initWithOptions:keyedValues];
     });
     
     return manager;

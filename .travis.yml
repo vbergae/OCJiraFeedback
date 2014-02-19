@@ -1,8 +1,10 @@
 language: objective-c
 before_script:
+  - brew update
+  - brew install xctool
   - cd src/OCJiraFeedback
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
   - pod install
 script:
-  - xctool -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - xctool test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool ONLY_ACTIVE_ARCH=NO
+  - xctool test ONLY_ACTIVE_ARCH=NO

@@ -1,7 +1,5 @@
 language: objective-c
 before_script:
-  - brew update
-  - brew install xctool
   - cd src/OCJiraFeedback
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
   - pod install

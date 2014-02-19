@@ -9,7 +9,7 @@
 #import "OCJiraFeedback.h"
 
 #import "OCJiraIssue.h"
-#import "OCAtlassianInstance.h"
+#import "OCConnectionManager.h"
 
 @implementation OCJiraFeedback
 
@@ -17,12 +17,14 @@
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler
 {
+    NSString *typeName  = OCConnectionManager.sharedManager.issueTypeName;
+    
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = summary;
     issue.description   = description;
+    issue.type          = OCIssueTypeFromNSString(typeName);
     
-    OCAtlassianInstance *instance = OCAtlassianInstance.create;
-    [instance save:issue completion:handler];
+    [OCConnectionManager.sharedManager save:issue completion:handler];
 }
 
 @end

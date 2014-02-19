@@ -12,10 +12,6 @@
 
 static NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
 static NSString * const kOCHostKey          = @"host";
-static NSString * const kOCUsernameKey      = @"username";
-static NSString * const kOCPasswordKey      = @"password";
-static NSString * const kOCProjectKeyKey    = @"projectKey";
-static NSString * const kOCIssueTypeKey     = @"issueType";
 
 static NSDictionary * ReadInstanceData()
 {

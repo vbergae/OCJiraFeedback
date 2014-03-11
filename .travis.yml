@@ -1,9 +1,10 @@
 language: objective-c
-rvm: 1.9.3
 before_install:
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
-Install:
+  - gem install cocoapods -v 0.29.0 --no-ri --no-doc
+  
+install:
   - pod install
+
 script:
   - xctool ONLY_ACTIVE_ARCH=NO
   - xctool test ONLY_ACTIVE_ARCH=NO

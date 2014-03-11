@@ -1,7 +1,7 @@
 language: objective-c
 before_install:
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet  
-
+  - gem install cocoapods -v 0.29.0 --no-ri --no-doc
+  
 install:
   - cd src/OCJiraFeedback
   - pod install

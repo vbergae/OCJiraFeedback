@@ -11,6 +11,7 @@
 #import "OCJiraIssue.h"
 
 static NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
+static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments";
 static NSString * const kOCHostKey          = @"host";
 
 static NSDictionary * ReadInstanceData()
@@ -52,6 +53,9 @@ static NSDictionary * ReadInstanceData()
     self = [super initWithBaseURL:URL];
     if (self) {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
+        [self.requestSerializer setAuthorizationHeaderFieldWithUsername:options[@"username"]
+                                                               password:options[@"password"]];
+        
         [self setValuesForKeysWithDictionary:options];
     }
     
@@ -73,6 +77,18 @@ static NSDictionary * ReadInstanceData()
        success:^(AFHTTPRequestOperation *operation,
                            id responseObject)
      {
+         NSMutableDictionary *keyedValues = [(NSDictionary *)responseObject
+                                             mutableCopy];
+         
+         keyedValues[@"issueId"]    = responseObject[@"id"];
+         keyedValues[@"issueKey"]   = responseObject[@"key"];
+         keyedValues[@"selfURL"]    = responseObject[@"self"];
+         
+         [keyedValues removeObjectForKey:@"id"];
+         [keyedValues removeObjectForKey:@"key"];
+         [keyedValues removeObjectForKey:@"self"];
+         
+         [issue setValuesForKeysWithDictionary:keyedValues];
          handler(nil);
      }
        failure:^(AFHTTPRequestOperation *operation,
@@ -80,6 +96,38 @@ static NSDictionary * ReadInstanceData()
      {
          handler(error);
      }];
+}
+
+- (void)attach:(NSData *)data
+         issue:(OCJiraIssue *)issue
+    completion:(void (^)(NSError *))handler
+{
+    NSParameterAssert(data);
+    NSParameterAssert(issue);
+    NSParameterAssert(handler);
+    
+    // Takes the reference to remove custom headers later
+    __block AFHTTPRequestSerializer *serializer = self.requestSerializer;
+    [serializer setValue:@"nocheck"
+      forHTTPHeaderField:@"X-Atlassian-Token"];
+    //
+    
+    NSString *path = [NSString stringWithFormat:kOCAttachPath, issue.issueKey];
+    
+    [self POST:path
+    parameters:nil
+    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data
+                                    name:@"file"
+                                fileName:@"attachment.png"
+                                mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
+        handler(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
+        handler(error);
+    }];
 }
 
 #pragma mark -

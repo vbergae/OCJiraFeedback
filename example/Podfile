@@ -1,4 +1,3 @@
 platform :ios, '7.0'
 
-pod 'OCJiraFeedback'
-podspec :path => "../OCJiraFeedback.podspec"
+pod 'OCJiraFeedback', :path => "../OCJiraFeedback.podspec"

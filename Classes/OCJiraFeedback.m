@@ -9,7 +9,7 @@
 #import "OCJiraFeedback.h"
 
 #import "OCJiraIssue.h"
-#import "OCConnectionManager.h"
+#import "UIImage+OCJiraFeedback.h"
 
 @implementation OCJiraFeedback
 
@@ -17,12 +17,25 @@
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler
 {
+    [self feedbackWithSummary:summary
+                  description:description
+                         view:nil
+                   completion:handler];
+}
+
++ (void)feedbackWithSummary:(NSString *)summary
+                description:(NSString *)description
+                       view:(UIView *)view
+                 completion:(void (^)(NSError *))handler
+{
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = summary;
     issue.description   = description;
-    issue.type          = OCConnectionManager.sharedManager.issueType;
     
-    [OCConnectionManager.sharedManager save:issue completion:handler];
+    if (view)
+        issue.attachment    = [UIImage imageWithView:view];
+    
+    [issue save:handler];
 }
 
 @end

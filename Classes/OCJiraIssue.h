@@ -39,6 +39,11 @@
  */
 @property NSString *description;
 /**
+ 
+ */
+@property UIImage *attachment;
+
+/**
  String used as issue type (Improvement, Task, Bug, etc..) when it's creted
  on Jira instance.
  

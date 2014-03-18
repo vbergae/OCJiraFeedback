@@ -24,7 +24,18 @@
 
 - (void)save:(void (^)(NSError *))handler
 {
-    [OCConnectionManager.sharedManager save:self completion:handler];
+    [OCConnectionManager.sharedManager
+     save:self
+     completion:^(NSError *error) {
+         if (!error && self.attachment) {
+             NSData *data = UIImagePNGRepresentation(self.attachment);
+             [OCConnectionManager.sharedManager attach:data issue:self completion:^(NSError *error) {
+                 handler(error);
+             }];
+         } else {
+             handler(error);
+         }
+     }];
 }
 
 @end

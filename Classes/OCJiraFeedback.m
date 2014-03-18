@@ -9,6 +9,7 @@
 #import "OCJiraFeedback.h"
 
 #import "OCJiraIssue.h"
+#import "UIImage+OCJiraFeedback.h"
 
 @implementation OCJiraFeedback
 
@@ -16,11 +17,10 @@
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler
 {
-    OCJiraIssue *issue  = OCJiraIssue.new;
-    issue.summary       = summary;
-    issue.description   = description;
-    
-    [issue save:handler];
+    [self feedbackWithSummary:summary
+                  description:description
+                         view:nil
+                   completion:handler];
 }
 
 + (void)feedbackWithSummary:(NSString *)summary
@@ -28,7 +28,14 @@
                        view:(UIView *)view
                  completion:(void (^)(NSError *))handler
 {
+    OCJiraIssue *issue  = OCJiraIssue.new;
+    issue.summary       = summary;
+    issue.description   = description;
     
+    if (view)
+        issue.attachment    = [UIImage imageWithView:view];
+    
+    [issue save:handler];
 }
 
 @end

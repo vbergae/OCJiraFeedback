@@ -52,6 +52,9 @@ static NSDictionary * ReadInstanceData()
     self = [super initWithBaseURL:URL];
     if (self) {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
+        [self.requestSerializer setAuthorizationHeaderFieldWithUsername:options[@"username"]
+                                                               password:options[@"password"]];
+        
         [self setValuesForKeysWithDictionary:options];
     }
     
@@ -75,7 +78,14 @@ static NSDictionary * ReadInstanceData()
      {
          NSMutableDictionary *keyedValues = [(NSDictionary *)responseObject
                                              mutableCopy];
-         keyedValues[@"selfURL"] = responseObject[@"self"];
+         
+         keyedValues[@"issueId"]    = responseObject[@"id"];
+         keyedValues[@"issueKey"]   = responseObject[@"key"];
+         keyedValues[@"selfURL"]    = responseObject[@"self"];
+         
+         [keyedValues removeObjectForKey:@"id"];
+         [keyedValues removeObjectForKey:@"key"];
+         [keyedValues removeObjectForKey:@"self"];
          
          [issue setValuesForKeysWithDictionary:keyedValues];
          handler(nil);

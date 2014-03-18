@@ -69,6 +69,10 @@
  */
 - (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
 
+- (void)attach:(NSData *)data
+         issue:(OCJiraIssue *)issue
+    completion:(void(^)(NSError *error))handler;
+
 /**
  @name Class methods
  */

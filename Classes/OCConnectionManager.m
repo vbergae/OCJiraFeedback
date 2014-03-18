@@ -73,6 +73,11 @@ static NSDictionary * ReadInstanceData()
        success:^(AFHTTPRequestOperation *operation,
                            id responseObject)
      {
+         NSMutableDictionary *keyedValues = [(NSDictionary *)responseObject
+                                             mutableCopy];
+         keyedValues[@"selfURL"] = responseObject[@"self"];
+         
+         [issue setValuesForKeysWithDictionary:keyedValues];
          handler(nil);
      }
        failure:^(AFHTTPRequestOperation *operation,
@@ -80,6 +85,36 @@ static NSDictionary * ReadInstanceData()
      {
          handler(error);
      }];
+}
+
+- (void)attach:(NSData *)data
+         issue:(OCJiraIssue *)issue
+    completion:(void (^)(NSError *))handler
+{
+    NSParameterAssert(data);
+    NSParameterAssert(issue);
+    NSParameterAssert(handler);
+    
+    // Takes the reference to remove custom headers later
+    __block AFHTTPRequestSerializer *serializer = self.requestSerializer;
+    [serializer setValue:@"nocheck"
+      forHTTPHeaderField:@"X-Atlassian-Token"];
+    //
+    
+    [self POST:nil
+    parameters:nil
+    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data
+                                    name:@"file"
+                                fileName:@"attachment.png"
+                                mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
+        handler(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
+        handler(error);
+    }];
 }
 
 #pragma mark -

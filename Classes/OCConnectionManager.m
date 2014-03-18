@@ -11,6 +11,7 @@
 #import "OCJiraIssue.h"
 
 static NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
+static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments";
 static NSString * const kOCHostKey          = @"host";
 
 static NSDictionary * ReadInstanceData()
@@ -111,7 +112,9 @@ static NSDictionary * ReadInstanceData()
       forHTTPHeaderField:@"X-Atlassian-Token"];
     //
     
-    [self POST:nil
+    NSString *path = [NSString stringWithFormat:kOCAttachPath, issue.issueKey];
+    
+    [self POST:path
     parameters:nil
     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:data

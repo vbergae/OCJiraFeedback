@@ -16,6 +16,21 @@
 @interface OCJiraIssue : NSObject
 
 /**
+ Issue id returned when is created
+ */
+@property NSString *issueId;
+
+/**
+ Issue key returned when is created
+ */
+@property NSString *issueKey;
+
+/**
+ Issue's remote URL
+ */
+@property NSURL *selfURL;
+
+/**
  Brief description
  */
 @property NSString *summary;

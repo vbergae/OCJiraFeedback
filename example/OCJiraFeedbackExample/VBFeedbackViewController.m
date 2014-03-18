@@ -30,6 +30,7 @@
     
     [OCJiraFeedback feedbackWithSummary:summary
                             description:description
+                                   view:self.view
                              completion:^(NSError *error)
     {
         NSLog(@"Feedback result: %@", error);

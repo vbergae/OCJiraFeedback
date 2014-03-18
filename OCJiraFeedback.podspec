@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.author       = { "Víctor Berga" => "vbergae@gmail.com" }
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/vbergae/OCJiraFeedback.git", :tag => s.version.to_s }
-  s.source_files  = 'src/OCJiraFeedback/OCJiraFeedback/', 'src/OCJiraFeedback/OCJiraFeedback/**/*.{h,m}'
- s.public_header_files = 'src/OCJiraFeedback/OCJiraFeedback/OCJiraFeedback.h'
+  s.source_files  = 'Classes/**/*.{h,m}'
+  s.public_header_files = 'Classes/OCJiraFeedback.h'
   s.resource  = "src/OCJiraFeedback/Instance.plist.distribution"
   s.requires_arc = true
   s.dependency 'AFNetworking'

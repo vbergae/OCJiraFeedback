@@ -25,8 +25,21 @@
 @property NSString *description;
 /**
  String used as issue type (Improvement, Task, Bug, etc..) when it's creted
- on Jira instance
+ on Jira instance.
+ 
+ The default type is set on your Instance.plist file
  */
-@property NSString *type;
+@property (readonly) NSString *type;
+
+/**
+ @name Saving the issue
+ */
+
+/**
+ Saves the recevier on the remote host as new issue.
+ 
+ @param handler Completion handler
+ */
+- (void)save:(void(^)(NSError *error))handler;
 
 @end

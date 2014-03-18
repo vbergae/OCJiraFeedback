@@ -9,7 +9,6 @@
 #import "OCJiraFeedback.h"
 
 #import "OCJiraIssue.h"
-#import "OCConnectionManager.h"
 
 @implementation OCJiraFeedback
 
@@ -20,9 +19,16 @@
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = summary;
     issue.description   = description;
-    issue.type          = OCConnectionManager.sharedManager.issueType;
     
-    [OCConnectionManager.sharedManager save:issue completion:handler];
+    [issue save:handler];
+}
+
++ (void)feedbackWithSummary:(NSString *)summary
+                description:(NSString *)description
+                       view:(UIView *)view
+                 completion:(void (^)(NSError *))handler
+{
+    
 }
 
 @end

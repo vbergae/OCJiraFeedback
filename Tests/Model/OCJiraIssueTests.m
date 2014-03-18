@@ -49,7 +49,6 @@
 
 - (void)test_type
 {
-    self.issue.type = @"Improvement";
     XCTAssertNotNil(self.issue.type, @"should return a typeName");
 }
 

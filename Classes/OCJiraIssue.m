@@ -7,8 +7,24 @@
 //
 
 #import "OCJiraIssue.h"
+#import "OCConnectionManager.h"
 
 @implementation OCJiraIssue
 
+#pragma mark -
+#pragma mark Properties
+
+- (NSString *)type
+{
+    return OCConnectionManager.sharedManager.issueType;
+}
+
+#pragma mark -
+#pragma mark Instance methods
+
+- (void)save:(void (^)(NSError *))handler
+{
+    [OCConnectionManager.sharedManager save:self completion:handler];
+}
 
 @end

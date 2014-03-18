@@ -85,7 +85,6 @@
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = @"summary";
     issue.description   = @"description";
-    issue.type          = @"Improvement";
     
     [manager save:issue completion:^(NSError *e) {}];
     XCTAssertNoThrow([manager verify],

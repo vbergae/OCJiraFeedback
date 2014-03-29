@@ -31,7 +31,7 @@ static NSDictionary * ReadInstanceData()
 @property NSString *host;
 @property NSString *username;
 @property NSString *password;
-@property NSString *projectKey;
+@property (readwrite) NSString *projectKey;
 @property (readwrite) NSString *defaultIssueName;
 
 - (NSDictionary *)parametersWith:(OCJiraIssue *)issue;

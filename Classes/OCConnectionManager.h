@@ -24,6 +24,8 @@
  @name Properties
  */
 
+@property (readonly) NSString *projectKey;
+
 /**
  Default issue type from Instance.plist settings. Configure it based
  on your Jira configuration.

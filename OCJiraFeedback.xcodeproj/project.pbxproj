@@ -24,6 +24,8 @@
 		CC0EC60B18B5651600593C03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0EC60918B5651600593C03 /* InfoPlist.strings */; };
 		CC5F0C8A18D8C8DA0052980A /* UIImage+OCJiraFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5F0C8918D8C8DA0052980A /* UIImage+OCJiraFeedback.m */; };
 		CC5F0C8C18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5F0C8B18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m */; };
+		CC87494618E6EAA80096545E /* OCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC87494518E6EAA80096545E /* OCRequest.m */; };
+		CC87494818E6EDCC0096545E /* OCRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC87494718E6EDCC0096545E /* OCRequestTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		CC5F0C8818D8C8DA0052980A /* UIImage+OCJiraFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+OCJiraFeedback.h"; path = "Classes/UIImage+OCJiraFeedback.h"; sourceTree = SOURCE_ROOT; };
 		CC5F0C8918D8C8DA0052980A /* UIImage+OCJiraFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+OCJiraFeedback.m"; path = "Classes/UIImage+OCJiraFeedback.m"; sourceTree = SOURCE_ROOT; };
 		CC5F0C8B18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+OCJiraFeedbackTests.m"; path = "Tests/UIImage+OCJiraFeedbackTests.m"; sourceTree = SOURCE_ROOT; };
+		CC87494418E6EAA80096545E /* OCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCRequest.h; path = Classes/OCRequest.h; sourceTree = SOURCE_ROOT; };
+		CC87494518E6EAA80096545E /* OCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequest.m; path = Classes/OCRequest.m; sourceTree = SOURCE_ROOT; };
+		CC87494718E6EDCC0096545E /* OCRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequestTests.m; path = Tests/Model/OCRequestTests.m; sourceTree = SOURCE_ROOT; };
 		D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.xcconfig"; path = "Pods/Pods-OCJiraFeedback.xcconfig"; sourceTree = "<group>"; };
 		E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.xcconfig"; path = "Pods/Pods-OCJiraFeedbackTests.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,10 +148,12 @@
 			children = (
 				CC0EC5F318B563FA00593C03 /* OCJiraFeedback.h */,
 				CC0EC5F418B563FA00593C03 /* OCJiraFeedback.m */,
-				CC0EC5ED18B563E300593C03 /* OCConnectionManager.h */,
-				CC0EC5EE18B563E300593C03 /* OCConnectionManager.m */,
 				CC0EC5EF18B563E300593C03 /* OCJiraIssue.h */,
 				CC0EC5F018B563E300593C03 /* OCJiraIssue.m */,
+				CC87494418E6EAA80096545E /* OCRequest.h */,
+				CC87494518E6EAA80096545E /* OCRequest.m */,
+				CC0EC5ED18B563E300593C03 /* OCConnectionManager.h */,
+				CC0EC5EE18B563E300593C03 /* OCConnectionManager.m */,
 				CC09E7F518AE95FC00714B92 /* Supporting Files */,
 				CC5F0C8818D8C8DA0052980A /* UIImage+OCJiraFeedback.h */,
 				CC5F0C8918D8C8DA0052980A /* UIImage+OCJiraFeedback.m */,
@@ -194,6 +201,7 @@
 				CC0EC60018B564FD00593C03 /* OCJiraIssueTests.m */,
 				CC0EC60218B564FD00593C03 /* OCJiraFeedbackTests.m */,
 				CC5F0C8B18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m */,
+				CC87494718E6EDCC0096545E /* OCRequestTests.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5F0C8A18D8C8DA0052980A /* UIImage+OCJiraFeedback.m in Sources */,
+				CC87494618E6EAA80096545E /* OCRequest.m in Sources */,
 				CC0EC5F518B563FA00593C03 /* OCJiraFeedback.m in Sources */,
 				CC0EC5F118B563E300593C03 /* OCConnectionManager.m in Sources */,
 				CC0EC5F218B563E300593C03 /* OCJiraIssue.m in Sources */,
@@ -362,6 +371,7 @@
 				CC0EC60818B564FD00593C03 /* OCJiraFeedbackTests.m in Sources */,
 				CC0EC60618B564FD00593C03 /* OCJiraIssueTests.m in Sources */,
 				CC0EC60518B564FD00593C03 /* OCConnectionManagerTests.m in Sources */,
+				CC87494818E6EDCC0096545E /* OCRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

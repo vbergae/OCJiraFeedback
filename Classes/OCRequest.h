@@ -81,7 +81,13 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
                 withName:(NSString *)name
                     type:(NSString *)type;
 
+/**
+ @name Default Connection
+ */
 
+/**
+ Connection manager used
+ */
 + (OCConnectionManager *)manager;
 
 @end

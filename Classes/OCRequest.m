@@ -134,6 +134,12 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performMultipartPOST:(void(^)(id, NSError *))handler
 {
+    // Takes the reference to remove custom headers later
+    __block AFHTTPRequestSerializer *serializer = OCRequest.manager.requestSerializer;
+    [serializer setValue:@"nocheck"
+      forHTTPHeaderField:@"X-Atlassian-Token"];
+    //
+    
     [OCRequest.manager POST:self.path
                  parameters:self.parameters
   constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
@@ -143,11 +149,13 @@ static NSString * const kMultipartTypeKey   = @"type";
                     success:^(AFHTTPRequestOperation *operation,
                               id responseObject)
      {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
          handler(responseObject, nil);
      }
                     failure:^(AFHTTPRequestOperation *operation,
                               NSError *error)
      {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];         
          handler(nil, error);
      }];
 }

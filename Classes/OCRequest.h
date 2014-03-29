@@ -72,4 +72,12 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
 - (void)performRequestWithHandler:(void(^)(id responseObject,
                                            NSError *error))handler;
 
+/**
+ Specifies a named multipart POST body for this request.
+ */
+- (void)addMultiPartData:(NSData *)data
+                withName:(NSString *)name
+                    type:(NSString *)type;
+
+
 @end

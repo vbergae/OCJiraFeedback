@@ -114,22 +114,42 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performPOST:(void (^)(id, NSError *))handler
 {
+    if (!self.multipartData.count) {
+        [OCRequest.manager POST:self.path
+                     parameters:self.parameters
+                        success:^(AFHTTPRequestOperation *operation,
+                                  id responseObject)
+        {
+            handler(responseObject, nil);
+        }
+                        failure:^(AFHTTPRequestOperation *operation,
+                                  NSError *error)
+        {
+            handler(nil, error);
+        }];
+    } else {
+        [self performMultipartPOST:handler];
+    }
+}
+
+- (void)performMultipartPOST:(void(^)(id, NSError *))handler
+{
     [OCRequest.manager POST:self.path
                  parameters:self.parameters
   constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-    {
-        [self appendMultipartToFormData:formData];
-    }
+     {
+         [self appendMultipartToFormData:formData];
+     }
                     success:^(AFHTTPRequestOperation *operation,
                               id responseObject)
-    {
-        handler(responseObject, nil);
-    }
+     {
+         handler(responseObject, nil);
+     }
                     failure:^(AFHTTPRequestOperation *operation,
                               NSError *error)
-    {
-        handler(nil, error);
-    }];
+     {
+         handler(nil, error);
+     }];
 }
 
 - (void)appendMultipartToFormData:(id<AFMultipartFormData>)formData

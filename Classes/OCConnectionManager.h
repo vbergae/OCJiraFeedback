@@ -60,23 +60,6 @@
 - (id)initWithOptions:(NSDictionary *)options;
 
 /**
- @name Instance methods
- */
-
-/**
- Saves the given issue on your server
- 
- @param issue New issue to be created
- @param handler Completion handler
- */
-- (void)save:(OCJiraIssue *)issue
-  completion:(void(^)(NSError *))handler __deprecated;
-
-- (void)attach:(NSData *)data
-         issue:(OCJiraIssue *)issue
-    completion:(void(^)(NSError *error))handler __deprecated;
-
-/**
  @name Class methods
  */
 

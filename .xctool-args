@@ -1,0 +1,5 @@
+[
+  "-workspace", "OCJiraFeedback.xcworkspace",
+  "-scheme", "OCJiraFeedback",
+  "-sdk", "iphonesimulator",
+]

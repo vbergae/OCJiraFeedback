@@ -43,11 +43,24 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
 		NSString *description 	= self.description.text;
 	
     	[OCJiraFeedback feedbackWithSummary:summary
-        	                    description:description
+        	                description:description
             	                 completion:^(NSError *error) {
 	        if (error) {
     	        // Handle error if exists
         	};
 	    }];
 	}
+
+	// or with a creenshot of your current view
+
+        [OCJiraFeedback feedbackWithSummary:summary
+                                description:description
+				       view:self.view
+                                 completion:^(NSError *error) {
+                if (error) {
+                // Handle error if exists
+                };
+            }];
+        }
+
 	```

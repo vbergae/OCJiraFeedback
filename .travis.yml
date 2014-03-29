@@ -3,9 +3,8 @@ before_install:
   - gem install cocoapods -v 0.29.0 --no-ri --no-doc
   
 install:
-  - cd src/OCJiraFeedback
   - pod install
-  
+
 script:
-  - xctool -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator
-  - xctool test -workspace OCJiraFeedback.xcworkspace/ -scheme OCJiraFeedback -sdk iphonesimulator
+  - xctool ONLY_ACTIVE_ARCH=NO
+  - xctool test ONLY_ACTIVE_ARCH=NO

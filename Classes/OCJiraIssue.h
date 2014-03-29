@@ -39,7 +39,7 @@
  */
 @property NSString *description;
 /**
- 
+ Image attached to this issue
  */
 @property UIImage *attachment;
 

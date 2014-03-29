@@ -143,21 +143,21 @@ static NSString * const kMultipartTypeKey   = @"type";
     [OCRequest.manager POST:self.path
                  parameters:self.parameters
   constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-     {
-         [self appendMultipartToFormData:formData];
-     }
+    {
+        [self appendMultipartToFormData:formData];
+    }
                     success:^(AFHTTPRequestOperation *operation,
                               id responseObject)
-     {
+    {
         [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
-         handler(responseObject, nil);
-     }
+        handler(responseObject, nil);
+    }
                     failure:^(AFHTTPRequestOperation *operation,
                               NSError *error)
-     {
-        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];         
-         handler(nil, error);
-     }];
+    {
+        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
+        handler(nil, error);
+    }];
 }
 
 - (void)appendMultipartToFormData:(id<AFMultipartFormData>)formData
@@ -170,7 +170,8 @@ static NSString * const kMultipartTypeKey   = @"type";
 
         NSAssert(data, @"data name not found");
         NSAssert(name, @"Multipart name not found");
-        NSAssert(type, @"Multipart type not found");
+        NSAssert([type isEqualToString:@"image/png"],
+                 @"Multipart type not found");
         NSAssert(filename, @"Multipart filename not found");
         
         [formData appendPartWithFileData:data
@@ -182,13 +183,14 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (NSString *)filenameForName:(NSString *)name type:(NSString *)type
 {
-    NSString *filename  = name;
+    NSString *filename  = [@((NSUInteger)[NSDate.date timeIntervalSince1970])
+                           stringValue];
     NSRange separator   = [type rangeOfString:@"/"];
     
     if (separator.location != NSNotFound) {
-        NSString *extension = [type substringFromIndex:separator.location];
+        NSString *extension = [type substringFromIndex:separator.location + 1];
         filename = [NSString stringWithFormat:@"%@.%@",
-                    name, extension];
+                    filename, extension];
     }
     
     return filename;

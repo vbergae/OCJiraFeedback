@@ -46,7 +46,6 @@
     [[[manager stub] andReturn:@"KEY"] projectKey];
     [[manager expect] POST:path
                 parameters:parameters
- constructingBodyWithBlock:OCMOCK_ANY
                    success:OCMOCK_ANY
                    failure:OCMOCK_ANY];
     

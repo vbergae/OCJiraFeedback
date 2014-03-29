@@ -67,11 +67,12 @@
  @param issue New issue to be created
  @param handler Completion handler
  */
-- (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
+- (void)save:(OCJiraIssue *)issue
+  completion:(void(^)(NSError *))handler __deprecated;
 
 - (void)attach:(NSData *)data
          issue:(OCJiraIssue *)issue
-    completion:(void(^)(NSError *error))handler;
+    completion:(void(^)(NSError *error))handler __deprecated;
 
 /**
  @name Class methods

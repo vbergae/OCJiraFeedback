@@ -61,6 +61,11 @@
 @property (readonly) NSDictionary *entityMap;
 
 /**
+ Returns a NSDictionary containing request's parameters
+ */
+@property (readonly) NSDictionary *parameters;
+
+/**
  @name Saving the issue
  */
 

@@ -8,11 +8,7 @@
 
 #import "OCConnectionManager.h"
 
-#import "OCJiraIssue.h"
-
-static NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
-static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments";
-static NSString * const kOCHostKey          = @"host";
+static NSString * const kOCHostKey = @"host";
 
 static NSDictionary * ReadInstanceData()
 {
@@ -31,10 +27,8 @@ static NSDictionary * ReadInstanceData()
 @property NSString *host;
 @property NSString *username;
 @property NSString *password;
-@property NSString *projectKey;
+@property (readwrite) NSString *projectKey;
 @property (readwrite) NSString *defaultIssueName;
-
-- (NSDictionary *)parametersWith:(OCJiraIssue *)issue;
 
 @end
 
@@ -63,63 +57,6 @@ static NSDictionary * ReadInstanceData()
 }
 
 #pragma mark -
-#pragma mark Instance methods
-
-- (void)save:(OCJiraIssue *)issue completion:(void (^)(NSError *))handler
-{
-    NSParameterAssert(issue);
-    NSParameterAssert(handler);
-
-    NSDictionary *parameters = [self parametersWith:issue];
-    
-    [self POST:kOCCreateIssuePath
-    parameters:parameters
-       success:^(AFHTTPRequestOperation *operation,
-                           id responseObject)
-     {
-         [issue setValuesForKeysWithDictionary:responseObject];
-         handler(nil);
-     }
-       failure:^(AFHTTPRequestOperation *operation,
-                           NSError *error)
-     {
-         handler(error);
-     }];
-}
-
-- (void)attach:(NSData *)data
-         issue:(OCJiraIssue *)issue
-    completion:(void (^)(NSError *))handler
-{
-    NSParameterAssert(data);
-    NSParameterAssert(issue);
-    NSParameterAssert(handler);
-    
-    // Takes the reference to remove custom headers later
-    __block AFHTTPRequestSerializer *serializer = self.requestSerializer;
-    [serializer setValue:@"nocheck"
-      forHTTPHeaderField:@"X-Atlassian-Token"];
-    //
-    
-    NSString *path = [NSString stringWithFormat:kOCAttachPath, issue.issueKey];
-    
-    [self POST:path
-    parameters:nil
-    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:data
-                                    name:@"file"
-                                fileName:@"attachment.png"
-                                mimeType:@"image/png"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
-        handler(nil);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [serializer setValue:@"" forHTTPHeaderField:@"X-Atlassian-Token"];
-        handler(error);
-    }];
-}
-
-#pragma mark -
 #pragma mark Class methods
 
 + (instancetype)sharedManager
@@ -132,23 +69,6 @@ static NSDictionary * ReadInstanceData()
     });
     
     return manager;
-}
-
-#pragma mark -
-#pragma mark Private methods
-
-- (NSDictionary *)parametersWith:(OCJiraIssue *)issue
-{
-    NSParameterAssert(issue);
-    
-    return @{
-        @"fields": @{
-            @"project": @{ @"key" : self.projectKey },
-            @"summary": issue.summary,
-            @"description": issue.description,
-            @"issuetype": @{ @"name" : issue.type}
-        }
-    };
 }
 
 @end

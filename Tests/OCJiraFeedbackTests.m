@@ -25,10 +25,29 @@
 
 - (void)test_feedbackWithSummary
 {
+    NSString *path = @"rest/api/2/issue";
+    NSDictionary *parameters = @{
+        @"fields" : @{
+            @"description" : @"description",
+            @"issuetype"  : @{
+                    @"name" : @"Task"
+            },
+            @"project"    : @{
+                    @"key" : @"KEY"
+            },
+            @"summary"      : @"summary"
+        }
+    };
+    
+    
     id manager = [OCMockObject mockForClass:OCConnectionManager.class];
     [[[manager stub] andReturn:manager] sharedManager];
     [[[manager stub] andReturn:@"Task"] issueType];
-    [[manager expect] save:OCMOCK_ANY completion:OCMOCK_ANY];
+    [[[manager stub] andReturn:@"KEY"] projectKey];
+    [[manager expect] POST:path
+                parameters:parameters
+                   success:OCMOCK_ANY
+                   failure:OCMOCK_ANY];
     
     [OCJiraFeedback feedbackWithSummary:@"summary"
                             description:@"description"

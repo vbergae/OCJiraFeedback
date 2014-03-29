@@ -24,6 +24,8 @@
  @name Properties
  */
 
+@property (readonly) NSString *projectKey;
+
 /**
  Default issue type from Instance.plist settings. Configure it based
  on your Jira configuration.
@@ -56,22 +58,6 @@
  @return Instance configured with the values of options
  */
 - (id)initWithOptions:(NSDictionary *)options;
-
-/**
- @name Instance methods
- */
-
-/**
- Saves the given issue on your server
- 
- @param issue New issue to be created
- @param handler Completion handler
- */
-- (void)save:(OCJiraIssue *)issue completion:(void(^)(NSError *))handler;
-
-- (void)attach:(NSData *)data
-         issue:(OCJiraIssue *)issue
-    completion:(void(^)(NSError *error))handler;
 
 /**
  @name Class methods

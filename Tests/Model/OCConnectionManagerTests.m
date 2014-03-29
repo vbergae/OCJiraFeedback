@@ -48,50 +48,6 @@
 }
 
 #pragma mark -
-#pragma mark Instance methods
-
-#pragma mark save:completion:
-
-- (void)test_save_completion_with_nil_issue
-{
-    XCTAssertThrows(
-        [OCConnectionManager.sharedManager
-         save:nil
-         completion:^(NSError *e) {}],
-        @"should raise parameter exception"
-    );
-}
-
-- (void)test_save_completion_with_nil_handler
-{
-    XCTAssertThrows(
-        [OCConnectionManager.sharedManager
-         save:OCJiraIssue.new
-         completion:nil],
-        @"should raise parameter exception"
-    );
-}
-
-- (void)test_save_completion
-{
-    id manager = [OCMockObject partialMockForObject:
-                  OCConnectionManager.sharedManager];
-    [[manager expect]
-     POST:OCMOCK_ANY
-     parameters:OCMOCK_ANY
-     success:OCMOCK_ANY
-     failure:OCMOCK_ANY];
-    
-    OCJiraIssue *issue  = OCJiraIssue.new;
-    issue.summary       = @"summary";
-    issue.description   = @"description";
-    
-    [manager save:issue completion:^(NSError *e) {}];
-    XCTAssertNoThrow([manager verify],
-                     @"should make POST request");
-}
-
-#pragma mark -
 #pragma mark Class methods
 
 #pragma mark sharedManager

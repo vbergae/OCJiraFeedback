@@ -52,4 +52,39 @@
     XCTAssertNotNil(self.issue.type, @"should return a typeName");
 }
 
+- (void)test_entityMap
+{
+    XCTAssertNotNil(self.issue.entityMap, @"should return mapping information");
+}
+
+#pragma mark -
+#pragma mark Instance methods
+
+#pragma mark setValuesForKeysWithDictionary:
+
+- (void)test_setValuesForKeysWithDictionary
+{
+    NSDictionary *keyedValues = @{
+        @"id"           : @"issueId_field",
+        @"key"          : @"issueKey_field",
+        @"self"         : @"http://www.selfURL.com",
+        @"summary"      : @"summary_field",
+        @"description"  : @"description_field",
+    };
+    
+    [self.issue setValuesForKeysWithDictionary:keyedValues];
+    
+    XCTAssertEqualObjects(self.issue.issueId, @"issueId_field",
+                          @"should map id to issueId");
+    XCTAssertEqualObjects(self.issue.issueKey, @"issueKey_field",
+                          @"should map key to issueKey");
+    XCTAssertEqualObjects(self.issue.selfURL,
+                          [NSURL URLWithString:@"http://www.selfURL.com"],
+                          @"should map self to selfURL");
+    XCTAssertEqualObjects(self.issue.summary, @"summary_field",
+                          @"should map summary");
+    XCTAssertEqualObjects(self.issue.description, @"description_field",
+                          @"should map description");
+}
+
 @end

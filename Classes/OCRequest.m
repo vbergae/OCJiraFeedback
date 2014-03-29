@@ -21,7 +21,6 @@ static NSString * const kMultipartTypeKey   = @"type";
 @property (readwrite) NSString *path;
 @property (readwrite) NSDictionary *parameters;
 @property (readwrite) OCRequestMethod requestMethod;
-@property (readonly) OCConnectionManager *manager;
 @property (readonly) NSMutableArray *multipartData;
 
 - (void)performGET:(void(^)(id responseObject, NSError *error))handler;
@@ -35,7 +34,7 @@ static NSString * const kMultipartTypeKey   = @"type";
 #pragma mark -
 #pragma mark Properties
 
-- (OCConnectionManager *)manager
++ (OCConnectionManager *)manager
 {
     return OCConnectionManager.sharedManager;
 }
@@ -99,25 +98,36 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performGET:(void (^)(id, NSError *))handler
 {
-    [self.manager GET:self.path
-           parameters:self.parameters
-              success:^(AFHTTPRequestOperation *operation, id responseObject)
+    [OCRequest.manager GET:self.path
+                parameters:self.parameters
+                   success:^(AFHTTPRequestOperation *operation,
+                             id responseObject)
     {
         handler(responseObject, nil);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }
+                   failure:^(AFHTTPRequestOperation *operation,
+                             NSError *error)
+    {
         handler(nil, error);
     }];
 }
 
 - (void)performPOST:(void (^)(id, NSError *))handler
 {
-    [self.manager POST:self.path
-            parameters:self.parameters
-constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [OCRequest.manager POST:self.path
+                 parameters:self.parameters
+  constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+    {
         [self appendMultipartToFormData:formData];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    }
+                    success:^(AFHTTPRequestOperation *operation,
+                              id responseObject)
+    {
         handler(responseObject, nil);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }
+                    failure:^(AFHTTPRequestOperation *operation,
+                              NSError *error)
+    {
         handler(nil, error);
     }];
 }
@@ -130,6 +140,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSString *type      = multipart[kMultipartTypeKey];
         NSString *filename  = [self filenameForName:name type:type];
 
+        NSAssert(data, @"data name not found");
+        NSAssert(name, @"Multipart name not found");
+        NSAssert(type, @"Multipart type not found");
+        NSAssert(filename, @"Multipart filename not found");
         
         [formData appendPartWithFileData:data
                                     name:name
@@ -140,7 +154,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 
 - (NSString *)filenameForName:(NSString *)name type:(NSString *)type
 {
-    NSString *filename  = nil;
+    NSString *filename  = name;
     NSRange separator   = [type rangeOfString:@"/"];
     
     if (separator.location != NSNotFound) {

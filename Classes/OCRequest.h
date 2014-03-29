@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "OCConnectionManager.h"
+
 /**
  Indicates the method used in the request.
  
@@ -79,5 +81,7 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
                 withName:(NSString *)name
                     type:(NSString *)type;
 
+
++ (OCConnectionManager *)manager;
 
 @end

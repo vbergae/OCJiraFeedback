@@ -7,7 +7,7 @@
 //
 
 #import "OCJiraIssue.h"
-#import "OCConnectionManager.h"
+#import "OCRequest.h"
 
 @implementation OCJiraIssue
 
@@ -25,6 +25,20 @@
         @"id"   : @"issueId",
         @"key"  : @"issueKey",
         @"self" : @"selfURL",
+    };
+}
+
+- (NSDictionary *)parameters
+{
+    return @{
+        @"fields": @{
+            @"project": @{
+                @"key" : OCRequest.manager.projectKey
+            },
+            @"summary": self.summary,
+            @"description": self.description,
+            @"issuetype": @{ @"name" : self.type}
+        }
     };
 }
 
@@ -55,18 +69,17 @@
 
 - (void)save:(void (^)(NSError *))handler
 {
-    [OCConnectionManager.sharedManager
-     save:self
-     completion:^(NSError *error) {
-         if (!error && self.attachment) {
-             NSData *data = UIImagePNGRepresentation(self.attachment);
-             [OCConnectionManager.sharedManager attach:data issue:self completion:^(NSError *error) {
-                 handler(error);
-             }];
-         } else {
-             handler(error);
-         }
-     }];
+    OCRequest *request = [[OCRequest alloc]
+                          initWithPath:@"rest/api/2/issue"
+                          paremeters:self.parameters
+                          requestMethod:OCRequestMethodPOST];
+    [request performRequestWithHandler:^(id responseObject, NSError *error) {
+        
+        if (!error)
+            [self setValuesForKeysWithDictionary:responseObject];
+        
+        handler(error);
+    }];
 }
 
 @end

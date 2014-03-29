@@ -7,8 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "OCRequest.h"
 
 @interface OCRequestTests : XCTestCase
+
+@property OCRequest *request;
 
 @end
 
@@ -17,18 +20,39 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
+    
+    self.request = [[OCRequest alloc]
+                    initWithPath:@"relative/path"
+                    paremeters:@{@"foo" : @"bar"}
+                    requestMethod:OCRequestMethodPOST];
 }
 
 - (void)tearDown
 {
-    // Put teardown code here; it will be run once, after the last test case.
+    self.request = nil;
+    
     [super tearDown];
 }
 
-- (void)testExample
+#pragma mark -
+#pragma mark Properties
+
+- (void)test_path
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertEqualObjects(self.request.path, @"relative/path",
+                          @"should return path used on init");
+}
+
+- (void)test_parameters
+{
+    XCTAssertEqualObjects(self.request.parameters, @{@"foo" : @"bar"},
+                          @"should return parameters used on init");
+}
+
+- (void)test_requestMethod
+{
+    XCTAssertTrue(self.request.requestMethod == OCRequestMethodPOST,
+                  @"should return request method used on init");
 }
 
 @end

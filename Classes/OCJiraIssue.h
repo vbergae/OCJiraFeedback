@@ -60,6 +60,8 @@
  */
 @property (readonly) NSDictionary *entityMap;
 
+@property (readonly) NSDictionary *parameters;
+
 /**
  @name Saving the issue
  */

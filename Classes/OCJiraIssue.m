@@ -9,6 +9,9 @@
 #import "OCJiraIssue.h"
 #import "OCRequest.h"
 
+static NSString * const kOCCreateIssuePath  = @"rest/api/2/issue";
+static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments";
+
 @implementation OCJiraIssue
 
 #pragma mark -
@@ -70,14 +73,32 @@
 - (void)save:(void (^)(NSError *))handler
 {
     OCRequest *request = [[OCRequest alloc]
-                          initWithPath:@"rest/api/2/issue"
+                          initWithPath:kOCCreateIssuePath
                           paremeters:self.parameters
                           requestMethod:OCRequestMethodPOST];
+    
     [request performRequestWithHandler:^(id responseObject, NSError *error) {
-        
-        if (!error)
+        if (!error) {
             [self setValuesForKeysWithDictionary:responseObject];
+            
+            if (self.attachment)
+                [self attach:handler];
+        }
         
+        handler(error);
+    }];
+}
+
+- (void)attach:(void(^)(NSError *))handler
+{
+    NSData *attachment = UIImagePNGRepresentation(self.attachment);
+    NSString *path = [NSString stringWithFormat:kOCAttachPath, self.issueKey];
+    
+    OCRequest *request = [[OCRequest alloc]
+                          initWithPath:path paremeters:nil
+                          requestMethod:OCRequestMethodPOST];
+    [request addMultiPartData:attachment withName:@"file" type:@"image/png"];
+    [request performRequestWithHandler:^(id responseObject, NSError *error) {
         handler(error);
     }];
 }

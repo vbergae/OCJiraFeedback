@@ -39,7 +39,7 @@
  */
 @property NSString *description;
 /**
- 
+ Image attached to this issue
  */
 @property UIImage *attachment;
 
@@ -50,6 +50,15 @@
  The default type is set on your Instance.plist file
  */
 @property (readonly) NSString *type;
+
+/**
+ Returns a NSDictionary instance with information aboute remote fields
+ and his map to local instance.
+ 
+ It is used on setValuesForKeysWithDictionary: to match remote properties
+ with local.
+ */
+@property (readonly) NSDictionary *entityMap;
 
 /**
  @name Saving the issue

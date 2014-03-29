@@ -77,18 +77,7 @@ static NSDictionary * ReadInstanceData()
        success:^(AFHTTPRequestOperation *operation,
                            id responseObject)
      {
-         NSMutableDictionary *keyedValues = [(NSDictionary *)responseObject
-                                             mutableCopy];
-         
-         keyedValues[@"issueId"]    = responseObject[@"id"];
-         keyedValues[@"issueKey"]   = responseObject[@"key"];
-         keyedValues[@"selfURL"]    = responseObject[@"self"];
-         
-         [keyedValues removeObjectForKey:@"id"];
-         [keyedValues removeObjectForKey:@"key"];
-         [keyedValues removeObjectForKey:@"self"];
-         
-         [issue setValuesForKeysWithDictionary:keyedValues];
+         [issue setValuesForKeysWithDictionary:responseObject];
          handler(nil);
      }
        failure:^(AFHTTPRequestOperation *operation,

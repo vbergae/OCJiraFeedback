@@ -158,6 +158,14 @@
     
     XCTAssertNoThrow([mockRequest verify],
                      @"should perform some request");
+    [mockRequest stopMocking];
+    mockRequest = nil;
+}
+
+- (void)test_save_with_nil_handler
+{
+    XCTAssertThrows([self.issue save:nil],
+                    @"should requires it");
 }
 
 @end

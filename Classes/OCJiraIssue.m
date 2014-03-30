@@ -72,8 +72,11 @@ static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments"
 
 - (void)save:(void (^)(NSError *))handler
 {
-    NSAssert(self.summary, @"The issue needs a summary before to save it");
-    NSAssert(self.description, @"The issue needs a description before no save it");
+    NSParameterAssert(handler);
+    NSAssert(self.summary,
+             @"The issue needs a summary before to save it");
+    NSAssert(self.description,
+             @"The issue needs a description before no save it");
     
     OCRequest *request = [OCRequest requestWithPath:kOCCreateIssuePath
                                          parameters:self.parameters

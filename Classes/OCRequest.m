@@ -98,6 +98,18 @@ static NSString * const kMultipartTypeKey   = @"type";
     [self.multipartData addObject:multipart];
 }
 
+#pragma mark Class methods
+
++ (OCRequest *)requestWithPath:(NSString *)path
+                    parameters:(NSDictionary *)parameters
+                 requestMethod:(OCRequestMethod)requestMethod
+{
+    OCRequest *request = [[OCRequest alloc] initWithPath:path
+                                              paremeters:parameters
+                                           requestMethod:requestMethod];
+    return request;
+}
+
 #pragma mark -
 #pragma mark Private methods
 

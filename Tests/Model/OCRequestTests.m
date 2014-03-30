@@ -96,4 +96,15 @@
     );
 }
 
+#pragma mark -
+#pragma mark Class methods
+
+- (void)test_requestWithPath_parameters_requestMethod
+{
+    OCRequest *result = [OCRequest requestWithPath:@"some/path"
+                                        parameters:@{@"foo" : @"bar"}
+                                     requestMethod:OCRequestMethodGET];
+    XCTAssertNotNil(result, @"should create the request");
+}
+
 @end

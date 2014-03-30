@@ -42,7 +42,7 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
 @property (readonly) NSDictionary *parameters;
 
 /**
- @name Initializing Requests
+ @name Requests Creation
  */
 
 /**
@@ -60,6 +60,20 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
 - (id)initWithPath:(NSString *)path
         paremeters:(NSDictionary *)parameters
      requestMethod:(OCRequestMethod)requestMethod;
+
+/**
+ Creates a new request instance using the path, parameters (if exists) and
+ request method.
+ 
+ @param path Relative path
+ @param parameters
+ @param requestMethod
+ 
+ @return Request instance
+ */
++ (OCRequest *)requestWithPath:(NSString *)path
+                    parameters:(NSDictionary *)parameters
+                 requestMethod:(OCRequestMethod)requestMethod;
 
 /**
  @name Sending Requests

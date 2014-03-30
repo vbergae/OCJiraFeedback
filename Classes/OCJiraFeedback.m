@@ -13,6 +13,25 @@
 
 @implementation OCJiraFeedback
 
++ (void)openFeedbackViewWithCompletion:(void (^)(void))handler
+{
+    NSParameterAssert(handler);
+    
+    UIViewController *controller = nil;
+    
+    UIApplication *application          = UIApplication.sharedApplication;
+    id<UIApplicationDelegate> delegate  = application.delegate;
+    UIWindow *window                    = delegate.window;
+    id rootInstance                     = window.rootViewController;
+    
+    if ([rootInstance isKindOfClass:UINavigationController.class]) {
+        UINavigationController *root = (UINavigationController *)rootInstance;
+        [root presentViewController:controller animated:YES completion:nil];
+    } else {
+        NSAssert(NO, @"instance not valid");
+    }
+}
+
 + (void)feedbackWithSummary:(NSString *)summary
                 description:(NSString *)description
                  completion:(void (^)(NSError *))handler

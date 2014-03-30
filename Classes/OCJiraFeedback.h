@@ -16,6 +16,19 @@
 @interface OCJiraFeedback : NSObject
 
 /**
+ @name Show feedback's view
+ */
+
+/**
+  Shows feedback's view
+ */
++ (void)openFeedbackViewWithCompletion:(void(^)(void))handler;
+
+/**
+ @name Send feedback directly
+ */
+
+/**
  Creates a new issue on your instance
  
  @param summary Issue summary

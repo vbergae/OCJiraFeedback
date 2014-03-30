@@ -21,6 +21,53 @@
 #pragma mark -
 #pragma mark Class methods
 
+#pragma mark openFeedbackViewWithCompletion:
+
+- (void)test_openFeedbackViewWith_NIL_completion
+{
+    XCTAssertThrows([OCJiraFeedback openFeedbackViewWithCompletion:nil],
+                    @"should require a completion handler");
+}
+
+- (void)test_openFeedbackViewWithCompletion
+{
+    // Given
+    id application      = [OCMockObject mockForClass:UIApplication.class];
+    id delegate         = [OCMockObject mockForProtocol:
+                           @protocol(UIApplicationDelegate)];
+    id window           = [OCMockObject mockForClass:UIWindow.class];
+    id rootControler    = [OCMockObject mockForClass:
+                           UINavigationController.class];
+    
+    [[[application stub] andReturn:application] sharedApplication];
+    [[[application stub] andReturn:delegate] delegate];
+    [[[delegate stub] andReturn:window] window];
+    [[[window stub] andReturn:rootControler] rootViewController];
+    
+    [[rootControler expect]
+     presentViewController:OCMOCK_ANY
+     animated:YES
+     completion:OCMOCK_ANY];
+    
+    // when
+    [OCJiraFeedback openFeedbackViewWithCompletion:^{}];
+    
+    // then
+    XCTAssertNoThrow([rootControler verify],
+                     @"should pop a controller on top of current stack");
+    
+    [rootControler stopMocking];
+    [window stopMocking];
+    [delegate stopMocking];
+    [application stopMocking];
+    
+    rootControler   = nil;
+    window          = nil;
+    delegate        = nil;
+    application     = nil;
+    
+}
+
 #pragma mark feedbackWithSummary:description:completion:
 
 - (void)test_feedbackWithSummary

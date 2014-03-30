@@ -40,10 +40,7 @@
     };
     
     
-    id manager = [OCMockObject mockForClass:OCConnectionManager.class];
-    [[[manager stub] andReturn:manager] sharedManager];
-    [[[manager stub] andReturn:@"Task"] issueType];
-    [[[manager stub] andReturn:@"KEY"] projectKey];
+    id manager = [OCMockObject partialMockForObject:OCConnectionManager.sharedManager];
     [[manager expect] POST:path
                 parameters:parameters
                    success:OCMOCK_ANY

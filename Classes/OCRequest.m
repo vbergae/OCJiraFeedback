@@ -72,6 +72,7 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performRequestWithHandler:(void (^)(id, NSError *))handler
 {
+    NSParameterAssert(handler);
     NSAssert(self.requestMethod == OCRequestMethodGET
              || self.requestMethod == OCRequestMethodPOST,
              @"Unknown requestMethod");
@@ -86,6 +87,10 @@ static NSString * const kMultipartTypeKey   = @"type";
                 withName:(NSString *)name
                     type:(NSString *)type
 {
+    NSParameterAssert(data);
+    NSParameterAssert(name);
+    NSParameterAssert(type);
+    
     NSDictionary *multipart = @{kMultipartDataKey : data,
                                 kMultipartNameKey : name,
                                 kMultipartTypeKey : type};

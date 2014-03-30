@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "OCJiraIssue.h"
+#import "OCRequest.h"
 
 @interface OCJiraIssueTests : XCTestCase
 
@@ -35,6 +37,24 @@
 #pragma mark -
 #pragma mark Properties
 
+- (void)test_issueId
+{
+    self.issue.issueId = @"issueId";
+    XCTAssertNotNil(self.issue.issueId, @"should return an issueId");
+}
+
+- (void)test_issueKey
+{
+    self.issue.issueKey = @"issueKey";
+    XCTAssertNotNil(self.issue.issueKey, @"should return a issueKey");
+}
+
+- (void)test_selfURL
+{
+    self.issue.selfURL = [NSURL URLWithString:@"http://url.com"];
+    XCTAssertNotNil(self.issue.selfURL, @"should return a URL");
+}
+
 - (void)test_summary
 {
     self.issue.summary = @"summary";
@@ -47,6 +67,12 @@
     XCTAssertNotNil(self.issue.description, @"should return a description");
 }
 
+- (void)test_attachment
+{
+    self.issue.attachment = UIImage.new;
+    XCTAssertNotNil(self.issue.attachment, @"should return an attachmetn");
+}
+
 - (void)test_type
 {
     XCTAssertNotNil(self.issue.type, @"should return a typeName");
@@ -54,7 +80,34 @@
 
 - (void)test_entityMap
 {
-    XCTAssertNotNil(self.issue.entityMap, @"should return mapping information");
+    // See Jira documentation
+    NSDictionary *expected = @{
+        @"id": @"issueId",
+        @"key" : @"issueKey",
+        @"self" : @"selfURL"
+    };
+    
+    XCTAssertEqualObjects(self.issue.entityMap, expected,
+                          @"should return expected map information");
+}
+
+- (void)test_parameters
+{
+    self.issue.summary      = @"The summary";
+    self.issue.description  = @"The description";
+    self.issue.attachment   = UIImage.new;
+    
+    NSDictionary *expected = @{
+        @"fields": @{
+            @"project": @{@"key" : @"TEST"},
+            @"summary": @"The summary",
+            @"description": @"The description",
+            @"issuetype": @{ @"name" : @"Improvement"}
+        }
+    };
+    
+    XCTAssertEqualObjects(self.issue.parameters, expected,
+                          @"should return expected parameters");
 }
 
 #pragma mark -
@@ -85,6 +138,34 @@
                           @"should map summary");
     XCTAssertEqualObjects(self.issue.description, @"description_field",
                           @"should map description");
+}
+
+#pragma mark save:
+
+- (void)test_save
+{
+    self.issue.summary      = @"summary";
+    self.issue.description  = @"description";
+    
+    id mockRequest = [OCMockObject mockForClass:OCRequest.class];
+    [[[mockRequest stub] andReturn:mockRequest]
+     requestWithPath:OCMOCK_ANY
+     parameters:OCMOCK_ANY
+     requestMethod:OCRequestMethodPOST];
+    [[mockRequest expect] performRequestWithHandler:OCMOCK_ANY];
+    
+    [self.issue save:^(NSError *error) {}];
+    
+    XCTAssertNoThrow([mockRequest verify],
+                     @"should perform some request");
+    [mockRequest stopMocking];
+    mockRequest = nil;
+}
+
+- (void)test_save_with_nil_handler
+{
+    XCTAssertThrows([self.issue save:nil],
+                    @"should requires it");
 }
 
 @end

@@ -72,11 +72,15 @@ static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments"
 
 - (void)save:(void (^)(NSError *))handler
 {
-    OCRequest *request = [[OCRequest alloc]
-                          initWithPath:kOCCreateIssuePath
-                          paremeters:self.parameters
-                          requestMethod:OCRequestMethodPOST];
+    NSParameterAssert(handler);
+    NSAssert(self.summary,
+             @"The issue needs a summary before to save it");
+    NSAssert(self.description,
+             @"The issue needs a description before no save it");
     
+    OCRequest *request = [OCRequest requestWithPath:kOCCreateIssuePath
+                                         parameters:self.parameters
+                                      requestMethod:OCRequestMethodPOST];
     [request performRequestWithHandler:^(id responseObject, NSError *error) {
         if (!error) {
             [self setValuesForKeysWithDictionary:responseObject];

@@ -28,6 +28,10 @@
                        view:(UIView *)view
                  completion:(void (^)(NSError *))handler
 {
+    NSParameterAssert(summary);
+    NSParameterAssert(description);
+    NSParameterAssert(handler);
+    
     OCJiraIssue *issue  = OCJiraIssue.new;
     issue.summary       = summary;
     issue.description   = description;

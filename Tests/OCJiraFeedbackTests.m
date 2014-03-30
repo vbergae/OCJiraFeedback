@@ -57,4 +57,39 @@
                      @"should send and issue using OCConnectionManager");
 }
 
+#pragma mark feedbackWithSummary:description:view:completion
+
+- (void)test_feedbackWithSummary_view_without_summary
+{
+    XCTAssertThrows(
+        [OCJiraFeedback feedbackWithSummary:nil
+                                description:@""
+                                       view:UIView.new
+                                 completion:^(NSError *error) {}],
+        @"should throw exception"
+    );
+}
+
+- (void)test_feedbackWithSummary_view_without_description
+{
+    XCTAssertThrows(
+        [OCJiraFeedback feedbackWithSummary:@""
+                                description:nil
+                                        view:UIView.new
+                                completion:^(NSError *error) {}],
+        @"should throw exception"
+    );
+}
+
+- (void)test_feedbackWithSummary_view_without_handler
+{
+    XCTAssertThrows(
+        [OCJiraFeedback feedbackWithSummary:@""
+                                description:@""
+                                       view:UIView.new
+                                 completion:nil],
+            @"should throw exception"
+    );
+}
+
 @end

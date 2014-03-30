@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "OCJiraIssue.h"
+#import "OCRequest.h"
 
 @interface OCJiraIssueTests : XCTestCase
 
@@ -139,6 +141,23 @@
 }
 
 #pragma mark save:
-#warning Write tests
+
+- (void)test_save
+{
+    self.issue.summary      = @"summary";
+    self.issue.description  = @"description";
+    
+    id mockRequest = [OCMockObject mockForClass:OCRequest.class];
+    [[[mockRequest stub] andReturn:mockRequest]
+     requestWithPath:OCMOCK_ANY
+     parameters:OCMOCK_ANY
+     requestMethod:OCRequestMethodPOST];
+    [[mockRequest expect] performRequestWithHandler:OCMOCK_ANY];
+    
+    [self.issue save:^(NSError *error) {}];
+    
+    XCTAssertNoThrow([mockRequest verify],
+                     @"should perform some request");
+}
 
 @end

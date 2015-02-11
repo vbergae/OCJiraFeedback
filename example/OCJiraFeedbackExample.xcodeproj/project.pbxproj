@@ -23,7 +23,7 @@
 		CCEF749518B14CC500F6AB0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEF749318B14CC500F6AB0A /* InfoPlist.strings */; };
 		CCEF749718B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEF749618B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m */; };
 		CCEF74A218B14E5700F6AB0A /* VBFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEF74A118B14E5700F6AB0A /* VBFeedbackViewController.m */; };
-		CCEF74A418B153BC00F6AB0A /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCEF74A318B153BC00F6AB0A /* Instance.plist */; };
+		D57139961A8BB871003B1CC6 /* Instance.plist in Resources */ = {isa = PBXBuildFile; fileRef = D57139951A8BB871003B1CC6 /* Instance.plist */; };
 		FD234648E1BF4FE1B3E27FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA32BE5171248E1810A3917 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2688351A556619B55BC32D2A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2EA32BE5171248E1810A3917 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		39BB65D8B0A697608C5898F1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC0EC60D18B5679000593C03 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CCEF746818B14CC500F6AB0A /* OCJiraFeedbackExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCJiraFeedbackExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCEF746B18B14CC500F6AB0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,8 +63,7 @@
 		CCEF749618B14CC500F6AB0A /* OCJiraFeedbackExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCJiraFeedbackExampleTests.m; sourceTree = "<group>"; };
 		CCEF74A018B14E5700F6AB0A /* VBFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFeedbackViewController.h; sourceTree = "<group>"; };
 		CCEF74A118B14E5700F6AB0A /* VBFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFeedbackViewController.m; sourceTree = "<group>"; };
-		CCEF74A318B153BC00F6AB0A /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = SOURCE_ROOT; };
-		E357F86967CF486DA37C31CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D57139951A8BB871003B1CC6 /* Instance.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instance.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11DB5CEF38C065E2F511B573 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2688351A556619B55BC32D2A /* Pods.debug.xcconfig */,
+				39BB65D8B0A697608C5898F1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CCEF745F18B14CC500F6AB0A = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +107,7 @@
 				CCEF749018B14CC500F6AB0A /* OCJiraFeedbackExampleTests */,
 				CCEF746A18B14CC500F6AB0A /* Frameworks */,
 				CCEF746918B14CC500F6AB0A /* Products */,
-				E357F86967CF486DA37C31CC /* Pods.xcconfig */,
+				11DB5CEF38C065E2F511B573 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0EC60D18B5679000593C03 /* Podfile */,
-				CCEF74A318B153BC00F6AB0A /* Instance.plist */,
+				D57139951A8BB871003B1CC6 /* Instance.plist */,
 				CCEF747318B14CC500F6AB0A /* OCJiraFeedbackExample-Info.plist */,
 				CCEF747418B14CC500F6AB0A /* InfoPlist.strings */,
 				CCEF747718B14CC500F6AB0A /* main.m */,
@@ -250,7 +260,7 @@
 			files = (
 				CC0EC60E18B5679000593C03 /* Podfile in Resources */,
 				CCEF748418B14CC500F6AB0A /* Images.xcassets in Resources */,
-				CCEF74A418B153BC00F6AB0A /* Instance.plist in Resources */,
+				D57139961A8BB871003B1CC6 /* Instance.plist in Resources */,
 				CCEF747618B14CC500F6AB0A /* InfoPlist.strings in Resources */,
 				CCEF747F18B14CC500F6AB0A /* Main.storyboard in Resources */,
 			);
@@ -294,7 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -361,7 +371,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -374,7 +383,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -400,7 +409,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -413,7 +421,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -431,7 +439,7 @@
 		};
 		CCEF749B18B14CC500F6AB0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E357F86967CF486DA37C31CC /* Pods.xcconfig */;
+			baseConfigurationReference = 2688351A556619B55BC32D2A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -445,7 +453,7 @@
 		};
 		CCEF749C18B14CC500F6AB0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E357F86967CF486DA37C31CC /* Pods.xcconfig */;
+			baseConfigurationReference = 39BB65D8B0A697608C5898F1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -460,7 +468,6 @@
 		CCEF749E18B14CC500F6AB0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OCJiraFeedbackExample.app/OCJiraFeedbackExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -483,7 +490,6 @@
 		CCEF749F18B14CC500F6AB0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OCJiraFeedbackExample.app/OCJiraFeedbackExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

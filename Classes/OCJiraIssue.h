@@ -33,11 +33,11 @@
 /**
  Brief description
  */
-@property NSString *summary;
+@property NSString *issueSummary;
 /**
  Detailed description
  */
-@property NSString *description;
+@property NSString *issueDescription;
 /**
  Image attached to this issue
  */

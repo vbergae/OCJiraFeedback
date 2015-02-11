@@ -26,7 +26,7 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
 	#import <OCJiraFeedback/OCJiraFeedback.h>
 	```
 
-* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira instance. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/src/OCJiraFeedback/Instance.plist.distribution):
+* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira instance. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/Resources/Instance.plist.distribution5):
 
 	Valid values for issueType: 'Improvement', 'Bug' or 'Task'.
 

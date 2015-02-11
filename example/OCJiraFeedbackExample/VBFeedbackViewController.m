@@ -25,8 +25,8 @@
 {
 #warning Check Instance.plist and edit before to use it!!
     
-    NSString *summary       = self.summary.text;
-    NSString *description   = self.description.text;
+    NSString *summary       = self.summaryTextField.text;
+    NSString *description   = self.descriptionTextView.text;
     
     [OCJiraFeedback feedbackWithSummary:summary
                             description:description

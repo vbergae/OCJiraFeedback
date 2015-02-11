@@ -51,7 +51,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1BACD9641D0CFD5330419170 /* Pods-OCJiraFeedbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCJiraFeedbackTests/Pods-OCJiraFeedbackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B80D5364BFE04CFFBB651A96 /* libPods-OCJiraFeedback.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedback.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABF12B7F4AC9C042DF6EDB7 /* Pods-OCJiraFeedback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCJiraFeedback/Pods-OCJiraFeedback.release.xcconfig"; sourceTree = "<group>"; };
+		C351C4618A8190DDBDA9C559 /* Pods-OCJiraFeedback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCJiraFeedback/Pods-OCJiraFeedback.debug.xcconfig"; sourceTree = "<group>"; };
 		CC09E7EF18AE95FC00714B92 /* libOCJiraFeedback.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCJiraFeedback.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC09E7F218AE95FC00714B92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CC09E7FF18AE95FC00714B92 /* OCJiraFeedbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCJiraFeedbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,8 +83,7 @@
 		CC87494418E6EAA80096545E /* OCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCRequest.h; path = Classes/OCRequest.h; sourceTree = SOURCE_ROOT; };
 		CC87494518E6EAA80096545E /* OCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequest.m; path = Classes/OCRequest.m; sourceTree = SOURCE_ROOT; };
 		CC87494718E6EDCC0096545E /* OCRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequestTests.m; path = Tests/Model/OCRequestTests.m; sourceTree = SOURCE_ROOT; };
-		D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedback.xcconfig"; path = "Pods/Pods-OCJiraFeedback.xcconfig"; sourceTree = "<group>"; };
-		E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.xcconfig"; path = "Pods/Pods-OCJiraFeedbackTests.xcconfig"; sourceTree = "<group>"; };
+		D993E748533664443F15E023 /* Pods-OCJiraFeedbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCJiraFeedbackTests/Pods-OCJiraFeedbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,8 +119,7 @@
 				CC09E80818AE95FC00714B92 /* Tests */,
 				CC09E7F118AE95FC00714B92 /* Frameworks */,
 				CC09E7F018AE95FC00714B92 /* Products */,
-				D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */,
-				E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */,
+				CC6F19BD3019493E888EADF6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +205,17 @@
 				CC87494718E6EDCC0096545E /* OCRequestTests.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		CC6F19BD3019493E888EADF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C351C4618A8190DDBDA9C559 /* Pods-OCJiraFeedback.debug.xcconfig */,
+				BABF12B7F4AC9C042DF6EDB7 /* Pods-OCJiraFeedback.release.xcconfig */,
+				1BACD9641D0CFD5330419170 /* Pods-OCJiraFeedbackTests.debug.xcconfig */,
+				D993E748533664443F15E023 /* Pods-OCJiraFeedbackTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +342,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-OCJiraFeedback-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCJiraFeedback/Pods-OCJiraFeedback-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3FC4E5E0F3B46189734234F /* Copy Pods Resources */ = {
@@ -345,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-OCJiraFeedbackTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCJiraFeedbackTests/Pods-OCJiraFeedbackTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -401,7 +413,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -414,6 +425,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -439,7 +451,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -452,6 +463,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -469,12 +481,11 @@
 		};
 		CC09E81318AE95FC00714B92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */;
+			baseConfigurationReference = C351C4618A8190DDBDA9C559 /* Pods-OCJiraFeedback.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/OCJiraFeedback.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -482,12 +493,11 @@
 		};
 		CC09E81418AE95FC00714B92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3926BF3D9314B25A0D67066 /* Pods-OCJiraFeedback.xcconfig */;
+			baseConfigurationReference = BABF12B7F4AC9C042DF6EDB7 /* Pods-OCJiraFeedback.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/OCJiraFeedback.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/OCJiraFeedback-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -495,9 +505,8 @@
 		};
 		CC09E81618AE95FC00714B92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */;
+			baseConfigurationReference = 1BACD9641D0CFD5330419170 /* Pods-OCJiraFeedbackTests.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -517,9 +526,8 @@
 		};
 		CC09E81718AE95FC00714B92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2374EFF6DDF4C4AAF51E226 /* Pods-OCJiraFeedbackTests.xcconfig */;
+			baseConfigurationReference = D993E748533664443F15E023 /* Pods-OCJiraFeedbackTests.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

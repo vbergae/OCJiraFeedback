@@ -29,8 +29,8 @@
                  completion:(void (^)(NSError *))handler
 {
     OCJiraIssue *issue  = OCJiraIssue.new;
-    issue.summary       = summary;
-    issue.description   = description;
+    issue.issueSummary       = summary;
+    issue.issueDescription   = description;
     
     if (view)
         issue.attachment    = [UIImage imageWithView:view];

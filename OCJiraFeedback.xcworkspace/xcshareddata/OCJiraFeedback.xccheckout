@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E1DBB007-50ED-4DDC-AFB8-EFC7ADF61454</string>
+	<string>AD5DDEA8-D571-4AB7-8D2B-D359CF306A26</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OCJiraFeedback</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3958CF99-123A-4ED2-816C-6BBB4C4579C0</key>
-		<string>https://github.com/vbergae/OCJiraFeedback.git</string>
+		<key>7B96F85D2B57587ADA92AEC039864312BC1420AB</key>
+		<string>github.com:alexruperez/OCJiraFeedback.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>src/OCJiraFeedback/OCJiraFeedback.xcworkspace</string>
+	<string>OCJiraFeedback.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3958CF99-123A-4ED2-816C-6BBB4C4579C0</key>
-		<string>../../..</string>
+		<key>7B96F85D2B57587ADA92AEC039864312BC1420AB</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/vbergae/OCJiraFeedback.git</string>
+	<string>github.com:alexruperez/OCJiraFeedback.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3958CF99-123A-4ED2-816C-6BBB4C4579C0</string>
+	<string>7B96F85D2B57587ADA92AEC039864312BC1420AB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3958CF99-123A-4ED2-816C-6BBB4C4579C0</string>
+			<string>7B96F85D2B57587ADA92AEC039864312BC1420AB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OCJiraFeedback</string>
 		</dict>

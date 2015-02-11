@@ -38,8 +38,8 @@ static NSString * const kOCAttachPath       = @"rest/api/2/issue/%@/attachments"
             @"project": @{
                 @"key" : OCRequest.manager.projectKey
             },
-            @"summary": self.summary,
-            @"description": self.description,
+            @"summary": self.issueSummary,
+            @"description": self.issueDescription,
             @"issuetype": @{ @"name" : self.type}
         }
     };

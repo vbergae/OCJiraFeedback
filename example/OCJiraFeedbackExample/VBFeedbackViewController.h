@@ -13,9 +13,9 @@
 #pragma mark -
 #pragma mark Outlets
 
-@property (weak, nonatomic) IBOutlet UITextField *summary;
+@property (weak, nonatomic) IBOutlet UITextField *summaryTextField;
 
-@property (weak, nonatomic) IBOutlet UITextView *description;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 #pragma mark -
 #pragma mark Actios

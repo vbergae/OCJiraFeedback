@@ -28,12 +28,12 @@
                        view:(UIView *)view
                  completion:(void (^)(NSError *))handler
 {
-    OCJiraIssue *issue  = OCJiraIssue.new;
-    issue.issueSummary       = summary;
-    issue.issueDescription   = description;
+    OCJiraIssue *issue  = [[OCJiraIssue alloc] initWithSummary:summary description:description];
     
     if (view)
+    {
         issue.attachment    = [UIImage imageWithView:view];
+    }
     
     [issue save:handler];
 }

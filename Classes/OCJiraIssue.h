@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 
 /**
- OCJiraIsuue
+ OCJiraIssue
  
  Class used to represent an issue on Jira
  */
 @interface OCJiraIssue : NSObject
+
+- (instancetype)initWithSummary:(NSString *)summary description:(NSString *)description NS_DESIGNATED_INITIALIZER;
+
+/**
+ Project key returned when is created
+ */
+@property (readonly) NSString *projectKey;
 
 /**
  Issue id returned when is created
@@ -49,7 +56,7 @@
  
  The default type is set on your Instance.plist file
  */
-@property (readonly) NSString *type;
+@property (readonly) NSString *issueType;
 
 /**
  Returns a NSDictionary instance with information aboute remote fields

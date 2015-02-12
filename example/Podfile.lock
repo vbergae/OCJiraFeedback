@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - OCJiraFeedback (0.3.1):
+  - OCJiraFeedback (0.4.0):
     - AFNetworking
 
 DEPENDENCIES:
@@ -32,6 +32,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  OCJiraFeedback: 6b21d4f2f80f0260b68595285cfc8cd6efd9cae2
+  OCJiraFeedback: b1522d021700b47de9b47a07f2af6c79ade161ee
 
 COCOAPODS: 0.35.0

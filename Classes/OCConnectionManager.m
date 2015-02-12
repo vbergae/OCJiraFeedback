@@ -7,19 +7,17 @@
 //
 
 #import "OCConnectionManager.h"
+#import "OCJiraConfiguration.h"
 
 static NSString * const kOCHostKey = @"host";
+static NSString * const kOCUsernameKey = @"username";
+static NSString * const kOCPasswordKey = @"password";
+static NSString * const kOCProjectKey = @"projectKey";
+static NSString * const kOCIssueTypeKey = @"issueType";
 
 static NSDictionary * ReadInstanceData()
 {
-    NSString *path = nil;
-    for (NSBundle *bundle in NSBundle.allBundles) {
-        path = [bundle pathForResource:@"Instance" ofType:@"plist"];
-        if (path) break;
-    }
-    assert(path);
-    
-    return [NSDictionary dictionaryWithContentsOfFile:path];
+    return OCJiraConfiguration.sharedConfiguration.configuration;
 }
 
 @interface OCConnectionManager()
@@ -45,10 +43,12 @@ static NSDictionary * ReadInstanceData()
     NSURL *URL = [NSURL URLWithString:URLString];
     
     self = [super initWithBaseURL:URL];
-    if (self) {
+    
+    if (self)
+    {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-        [self.requestSerializer setAuthorizationHeaderFieldWithUsername:options[@"username"]
-                                                               password:options[@"password"]];
+        [self.requestSerializer setAuthorizationHeaderFieldWithUsername:options[kOCUsernameKey]
+                                                               password:options[kOCPasswordKey]];
         
         [self setValuesForKeysWithDictionary:options];
     }
@@ -61,14 +61,14 @@ static NSDictionary * ReadInstanceData()
 
 + (instancetype)sharedManager
 {
+    static id sharedInstance = nil;
     static dispatch_once_t onceToken;
-    static OCConnectionManager *manager;
     dispatch_once(&onceToken, ^{
         NSDictionary *keyedValues = ReadInstanceData();
-        manager = [[OCConnectionManager alloc] initWithOptions:keyedValues];
+        sharedInstance = [[OCConnectionManager alloc] initWithOptions:keyedValues];
     });
     
-    return manager;
+    return sharedInstance;
 }
 
 @end

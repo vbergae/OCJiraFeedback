@@ -88,6 +88,6 @@ typedef NS_ENUM(unsigned char, OCRequestMethod) {
 /**
  Connection manager used
  */
-+ (OCConnectionManager *)manager;
+- (OCConnectionManager *)connectionManager;
 
 @end

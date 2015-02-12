@@ -40,7 +40,7 @@
     };
     
     
-    id manager = [OCMockObject mockForClass:OCConnectionManager.class];
+    id manager = [OCMockObject niceMockForClass:OCConnectionManager.class];
     [[[manager stub] andReturn:manager] sharedManager];
     [[[manager stub] andReturn:@"Task"] issueType];
     [[[manager stub] andReturn:@"KEY"] projectKey];

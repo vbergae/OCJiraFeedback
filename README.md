@@ -22,21 +22,35 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
 
 * Add OCJiraFeedback to your application:
 
-	```
+	```objectivec
 	#import <OCJiraFeedback/OCJiraFeedback.h>
 	```
 
-* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira instance. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/Resources/Instance.plist.distribution5):
+* Add and edit a Instance.plist file to your *main bundle* in order to configure the connection to your Jira instance. Get an scaffolded version from [here](https://github.com/vbergae/OCJiraFeedback/blob/master/Resources/Instance.plist.distribution):
 
 	Valid values for issueType: 'Improvement', 'Bug' or 'Task'.
 
 ![Instance.plist example](http://files.victorberga.com/instance_plist_example.png)
 
+* Optionally you can import the 'OCJiraConfiguration' header and set this values as a dictionary.
+
+	```objectivec
+	#import <OCJiraFeedback/OCJiraConfiguration.h>
+	
+	OCJiraConfiguration.sharedConfiguration.configuration = @{
+	    @"host"         : @"hostname.example.com",
+	    @"username"     : @"jira_username",
+	    @"password"     : @"1234",
+	    @"projectKey"   : @"TEST",
+	    @"issueType"    : @"Bug"
+	}
+	```
+
 * Recolect the summary and description fields:
 
 	For example, from an action implemented inside a controller with two textfield's outlets: 'summary' and 'description'.
 
-	```
+	```objectivec
 	- (IBAction)sendFeedbackAction:(id)sender
 	{
 		NSString *summary 		= self.summaryField.text;
@@ -58,7 +72,7 @@ Simple framework which sends feedback data from your apps to Atlassian Jira inst
                                 	 completion:^(NSError *error) {
                 	if (error) {
                 		// Handle error if exists
-                	};
+                	}
             	}];
 	}
 

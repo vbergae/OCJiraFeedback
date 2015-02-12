@@ -34,14 +34,15 @@ static NSString * const kMultipartTypeKey   = @"type";
 #pragma mark -
 #pragma mark Properties
 
-+ (OCConnectionManager *)manager
+- (OCConnectionManager *)connectionManager
 {
     return OCConnectionManager.sharedManager;
 }
 
 - (NSMutableArray *)multipartData
 {
-    if (!_multipartData) {
+    if (!_multipartData)
+    {
         _multipartData = NSMutableArray.new;
     }
     
@@ -58,7 +59,8 @@ static NSString * const kMultipartTypeKey   = @"type";
     NSParameterAssert(path);
     
     self = [super init];
-    if (self) {
+    if (self)
+    {
         self.path           = path;
         self.parameters     = parameters;
         self.requestMethod  = requestMethod;
@@ -98,7 +100,7 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performGET:(void (^)(id, NSError *))handler
 {
-    [OCRequest.manager GET:self.path
+    [self.connectionManager GET:self.path
                 parameters:self.parameters
                    success:^(AFHTTPRequestOperation *operation,
                              id responseObject)
@@ -114,8 +116,9 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)performPOST:(void (^)(id, NSError *))handler
 {
-    if (!self.multipartData.count) {
-        [OCRequest.manager POST:self.path
+    if (!self.multipartData.count)
+    {
+        [self.connectionManager POST:self.path
                      parameters:self.parameters
                         success:^(AFHTTPRequestOperation *operation,
                                   id responseObject)
@@ -135,12 +138,12 @@ static NSString * const kMultipartTypeKey   = @"type";
 - (void)performMultipartPOST:(void(^)(id, NSError *))handler
 {
     // Takes the reference to remove custom headers later
-    __block AFHTTPRequestSerializer *serializer = OCRequest.manager.requestSerializer;
+    __block AFHTTPRequestSerializer *serializer = self.connectionManager.requestSerializer;
     [serializer setValue:@"nocheck"
       forHTTPHeaderField:@"X-Atlassian-Token"];
     //
     
-    [OCRequest.manager POST:self.path
+    [self.connectionManager POST:self.path
                  parameters:self.parameters
   constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
     {
@@ -162,7 +165,8 @@ static NSString * const kMultipartTypeKey   = @"type";
 
 - (void)appendMultipartToFormData:(id<AFMultipartFormData>)formData
 {
-    for (NSDictionary *multipart in self.multipartData) {
+    for (NSDictionary *multipart in self.multipartData)
+    {
         NSData *data        = multipart[kMultipartDataKey];
         NSString *name      = multipart[kMultipartNameKey];
         NSString *type      = multipart[kMultipartTypeKey];
@@ -187,7 +191,8 @@ static NSString * const kMultipartTypeKey   = @"type";
                            stringValue];
     NSRange separator   = [type rangeOfString:@"/"];
     
-    if (separator.location != NSNotFound) {
+    if (separator.location != NSNotFound)
+    {
         NSString *extension = [type substringFromIndex:separator.location + 1];
         filename = [NSString stringWithFormat:@"%@.%@",
                     filename, extension];

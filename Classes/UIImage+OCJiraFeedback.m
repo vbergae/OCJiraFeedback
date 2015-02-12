@@ -12,7 +12,8 @@ static CGFloat ScreenScale()
 {
     CGFloat scale = 1.;
     
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+    {
         scale = UIScreen.mainScreen.scale;
     }
     
@@ -29,9 +30,12 @@ static CGFloat ScreenScale()
     
     CGFloat scale = ScreenScale();
     
-    if (scale > 1) {
+    if (scale > 1)
+    {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, scale);
-    } else {
+    }
+    else
+    {
         UIGraphicsBeginImageContext(view.bounds.size);
     }
     

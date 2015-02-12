@@ -35,6 +35,11 @@
 #pragma mark -
 #pragma mark Properties
 
+- (void)test_project
+{
+    XCTAssertNotNil(self.issue.projectKey, @"should return a project");
+}
+
 - (void)test_summary
 {
     self.issue.issueSummary = @"summary";
@@ -49,7 +54,7 @@
 
 - (void)test_type
 {
-    XCTAssertNotNil(self.issue.type, @"should return a typeName");
+    XCTAssertNotNil(self.issue.issueType, @"should return a type");
 }
 
 - (void)test_entityMap
@@ -69,7 +74,7 @@
         @"key"          : @"issueKey_field",
         @"self"         : @"http://www.selfURL.com",
         @"issueSummary"      : @"summary_field",
-        @"issueDescription"  : @"description_field",
+        @"issueDescription"  : @"description_field"
     };
     
     [self.issue setValuesForKeysWithDictionary:keyedValues];

@@ -26,6 +26,7 @@
 		CC5F0C8C18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5F0C8B18D8C9DE0052980A /* UIImage+OCJiraFeedbackTests.m */; };
 		CC87494618E6EAA80096545E /* OCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC87494518E6EAA80096545E /* OCRequest.m */; };
 		CC87494818E6EDCC0096545E /* OCRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC87494718E6EDCC0096545E /* OCRequestTests.m */; };
+		D5FEE6491A8CCB9B0073DFE1 /* OCJiraConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FEE6481A8CCB9B0073DFE1 /* OCJiraConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		CC87494418E6EAA80096545E /* OCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCRequest.h; path = Classes/OCRequest.h; sourceTree = SOURCE_ROOT; };
 		CC87494518E6EAA80096545E /* OCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequest.m; path = Classes/OCRequest.m; sourceTree = SOURCE_ROOT; };
 		CC87494718E6EDCC0096545E /* OCRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCRequestTests.m; path = Tests/Model/OCRequestTests.m; sourceTree = SOURCE_ROOT; };
+		D5FEE6471A8CCB9B0073DFE1 /* OCJiraConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCJiraConfiguration.h; path = Classes/OCJiraConfiguration.h; sourceTree = SOURCE_ROOT; };
+		D5FEE6481A8CCB9B0073DFE1 /* OCJiraConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCJiraConfiguration.m; path = Classes/OCJiraConfiguration.m; sourceTree = SOURCE_ROOT; };
 		D993E748533664443F15E023 /* Pods-OCJiraFeedbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCJiraFeedbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCJiraFeedbackTests/Pods-OCJiraFeedbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD6E5E331F144C458CA8326F /* libPods-OCJiraFeedbackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCJiraFeedbackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +152,8 @@
 			children = (
 				CC0EC5F318B563FA00593C03 /* OCJiraFeedback.h */,
 				CC0EC5F418B563FA00593C03 /* OCJiraFeedback.m */,
+				D5FEE6471A8CCB9B0073DFE1 /* OCJiraConfiguration.h */,
+				D5FEE6481A8CCB9B0073DFE1 /* OCJiraConfiguration.m */,
 				CC0EC5EF18B563E300593C03 /* OCJiraIssue.h */,
 				CC0EC5F018B563E300593C03 /* OCJiraIssue.m */,
 				CC87494418E6EAA80096545E /* OCRequest.h */,
@@ -371,6 +376,7 @@
 				CC87494618E6EAA80096545E /* OCRequest.m in Sources */,
 				CC0EC5F518B563FA00593C03 /* OCJiraFeedback.m in Sources */,
 				CC0EC5F118B563E300593C03 /* OCConnectionManager.m in Sources */,
+				D5FEE6491A8CCB9B0073DFE1 /* OCJiraConfiguration.m in Sources */,
 				CC0EC5F218B563E300593C03 /* OCJiraIssue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
